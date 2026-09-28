@@ -19,7 +19,9 @@
 | 6. Статистика | `analysis/compute.py` | `stats.json` |
 | 7. Данные для интерактива | `analysis/explorer.py` | `explorer.json` |
 | 8. Ударения (отдельное окружение) | `analysis/export_lines.py`, `analysis/accent.py` | `accented.json` |
-| 9. Отчёт | `analysis/build_report.py` | самодостаточный HTML |
+| 9. Стих: размер, рифма, звук, фраза | `analysis/verse.py` | `verse.json` |
+| 10. Переломы стиля, группы, карта словаря | `analysis/style.py` | `style.json` |
+| 11. Отчёт | `analysis/patch_report3.py` (шаблон) + `analysis/build_report.py` | самодостаточный HTML |
 
 ## Запуск
 
@@ -33,12 +35,18 @@ cd analysis
 python prepare.py && python explorer.py          # explorer.py заодно пересчитывает compute.py
 python export_lines.py
 python -m venv .venv-accent && .venv-accent/bin/pip install -r requirements-accent.txt
-.venv-accent/bin/python accent.py                # ~50 мин на CPU
-python build_report.py out.html
+.venv-accent/bin/python accent.py                # ~25 мин на CPU
+python verse.py && python style.py
+python patch_report3.py && python build_report.py out.html
 ```
 
 ## Методика
 
 Определения мер, допущения и ограничения — в разделе «Методика» самого отчёта.
-Кратко: леммы `pymorphy3` (без снятия омонимии), ударения `ruaccent`, слоги — число гласных,
+Кратко: леммы `pymorphy3` (без снятия омонимии), ударения `ruaccent` (отдельное окружение,
+`transformers<5`), размер — по положению ударений и распределению межударных промежутков,
+рифма — по звуковому окончанию от последнего ударного гласного, слоги — число гласных,
 жанр определяется по форме строк, год — по авторской дате в последних строках текста.
+
+Алгоритмы k-средних, t-SNE и SVD реализованы на numpy: в основном окружении scikit-learn,
+gensim и umap несовместимы с numpy 2.x. Ручной разметки нет — все классификаторы автоматические.

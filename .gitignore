@@ -11,6 +11,7 @@ analysis/accented.json
 analysis/stats.json
 analysis/explorer.json
 analysis/verse.json
+analysis/style.json
 *.html
 !analysis/report2.template.html
 
