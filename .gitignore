@@ -1,0 +1,25 @@
+# ── Тексты Бродского защищены авторским правом: в публичный репозиторий не попадают ──
+*.txt
+*.jsonl
+*.epub
+*.pkl
+*.log.json
+.html_cache/
+analysis/poem_lines.json
+analysis/accented.json
+# собранные данные и страница содержат цитаты — пересобираются локально
+analysis/stats.json
+analysis/explorer.json
+analysis/verse.json
+*.html
+!analysis/report2.template.html
+
+# ── окружения, кэш, служебное ──
+__pycache__/
+analysis/.venv-accent/
+*.log
+.claude/
+*.whl
+.DS_Store
+!requirements.txt
+!analysis/requirements-accent.txt

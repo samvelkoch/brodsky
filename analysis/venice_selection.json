@@ -1,0 +1,254 @@
+[
+ {
+  "title": "Римлянин - Беседа с вдовой нобелевского лауреата Иосифа Бродского (Нью-Йорк)",
+  "markers": 4,
+  "per1k_words": 4.35,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "fragment",
+  "reason": "вдова о похоронах Бродского в Венеции"
+ },
+ {
+  "title": "Иосиф Бродский - Елена Якович (Интервью) Венеция. Ноябрь 1993 г.",
+  "markers": 1,
+  "per1k_words": 0.53,
+  "title_hit": true,
+  "verdict": "out",
+  "mode": "",
+  "reason": "Венеция только в подписи «Венеция. Ноябрь 1993»"
+ },
+ {
+  "title": "Бенгт Янгфельдт. Комнаты Иосифа Бродского",
+  "markers": 1,
+  "per1k_words": 0.8,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "mention",
+  "reason": "текст о Бродском: где писалась «Набережная»"
+ },
+ {
+  "title": "Никакой мелодрамы - Беседа с Иосифом Бродским Ведет журналист Виталий Амурский",
+  "markers": 2,
+  "per1k_words": 0.37,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "fragment",
+  "reason": "ответ о романах де Ренье с зимней Венецией"
+ },
+ {
+  "title": "Свена Биркертс - Интервью с Иосифом Бродским",
+  "markers": 14,
+  "per1k_words": 1.24,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "fragment",
+  "reason": "вопрос и ответ «почему вы любите Венецию»"
+ },
+ {
+  "title": "\"Пришла зима, и все, кто мог лететь...\"",
+  "markers": 1,
+  "per1k_words": 0.35,
+  "title_hit": false,
+  "verdict": "out",
+  "mode": "",
+  "reason": "«гондолы» — железнодорожные вагоны"
+ },
+ {
+  "title": "Лагуна",
+  "markers": 3,
+  "per1k_words": 6.74,
+  "title_hit": true,
+  "verdict": "in",
+  "mode": "full",
+  "reason": "венецианская лагуна, Сан-Марко, гондола"
+ },
+ {
+  "title": "Сан-Пьетро",
+  "markers": 1,
+  "per1k_words": 1.51,
+  "title_hit": true,
+  "verdict": "in",
+  "mode": "full",
+  "reason": "название; «городок Северной Адриатики» — связь с Венецией по названию, в самом тексте город не назван"
+ },
+ {
+  "title": "В Англии",
+  "markers": 1,
+  "per1k_words": 0.73,
+  "title_hit": false,
+  "verdict": "out",
+  "mode": "",
+  "reason": "«венецианское стекло» в лондонском интерьере"
+ },
+ {
+  "title": "Эклога 4-я (зимняя)",
+  "markers": 1,
+  "per1k_words": 1.0,
+  "title_hit": false,
+  "verdict": "out",
+  "mode": "",
+  "reason": "«салют» — фейерверк, не Салюте"
+ },
+ {
+  "title": "Венецианские строфы (1)",
+  "markers": 3,
+  "per1k_words": 8.13,
+  "title_hit": true,
+  "verdict": "in",
+  "mode": "full",
+  "reason": "Венеция в названии и тексте"
+ },
+ {
+  "title": "Венецианские строфы (2)",
+  "markers": 1,
+  "per1k_words": 2.94,
+  "title_hit": true,
+  "verdict": "in",
+  "mode": "full",
+  "reason": "Венеция в названии"
+ },
+ {
+  "title": "В Италии",
+  "markers": 1,
+  "per1k_words": 8.7,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "full",
+  "reason": "«лучшая в мире лагуна с золотой голубятней»"
+ },
+ {
+  "title": "Вертумн",
+  "markers": 1,
+  "per1k_words": 0.57,
+  "title_hit": false,
+  "verdict": "out",
+  "mode": "",
+  "reason": "Адриатика упомянута мимоходом, стихотворение о Риме"
+ },
+ {
+  "title": "Лидо",
+  "markers": 0,
+  "per1k_words": 0.0,
+  "title_hit": true,
+  "verdict": "in",
+  "mode": "full",
+  "reason": "название — остров Лидо; в тексте маркеров нет"
+ },
+ {
+  "title": "Посвящается Джироламо Марчелло",
+  "markers": 0,
+  "per1k_words": 0.0,
+  "title_hit": true,
+  "verdict": "in",
+  "mode": "full",
+  "reason": "адресат — венецианец; прибытие морем зимой"
+ },
+ {
+  "title": "Посмертные публикации",
+  "markers": 2,
+  "per1k_words": 1.46,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "subpoem:С натуры",
+  "reason": "из подборки берётся только «С натуры» — Джироламо Марчелло, «венецианское небо»"
+ },
+ {
+  "title": "Набережная неисцелимых - \"Fondamenta degli incurabili\" - (1989)",
+  "markers": 90,
+  "per1k_words": 5.63,
+  "title_hit": true,
+  "verdict": "out",
+  "mode": "",
+  "reason": "дубль: вместо неё полная редакция СИБ"
+ },
+ {
+  "title": "Трофейное - (1986)",
+  "markers": 5,
+  "per1k_words": 1.02,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "fragment",
+  "reason": "эпизод: открытки с видами Венеции, романы Анри де Ренье"
+ },
+ {
+  "title": "Место не хуже любого - (1986)",
+  "markers": 3,
+  "per1k_words": 1.47,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "mention",
+  "reason": "Фениче и Сан-Джорджо — в перечне черт «любого» города"
+ },
+ {
+  "title": "Путешествие в Стамбул (1985)",
+  "markers": 1,
+  "per1k_words": 0.1,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "mention",
+  "reason": "пароходная линия Стамбул — Венеция"
+ },
+ {
+  "title": "На стороне Кавафиса - 1977",
+  "markers": 1,
+  "per1k_words": 0.28,
+  "title_hit": false,
+  "verdict": "out",
+  "mode": "",
+  "reason": "«неисцелимой скуки» — не топоним"
+ },
+ {
+  "title": "Иосиф Бродский. История двадцатого века",
+  "markers": 1,
+  "per1k_words": 0.11,
+  "title_hit": false,
+  "verdict": "in",
+  "mode": "mention",
+  "reason": "Дворец дожей Моне в перечне"
+ },
+ {
+  "title": "ЗАГОВОРЕННЫЕ ДРОЖКИ",
+  "markers": 1,
+  "per1k_words": 1.73,
+  "title_hit": false,
+  "verdict": "out",
+  "mode": "",
+  "reason": "перевод, улица Венеции в Кракове"
+ },
+ {
+  "title": "ТРИ СТИХОТВОРЕНИЯ ЛИНУЧЧЕ (фрагмент)",
+  "markers": 1,
+  "per1k_words": 14.71,
+  "title_hit": false,
+  "verdict": "out",
+  "mode": "",
+  "reason": "перевод, Адриатика вообще"
+ },
+ {
+  "title": "ПУТЕВОДИТЕЛЬ ПО ПЕРЕИМЕНОВАННОМУ ГОРОДУ",
+  "markers": 1,
+  "per1k_words": 0.17,
+  "title_hit": false,
+  "verdict": "out",
+  "mode": "",
+  "reason": "«венецианские окна» в Петербурге"
+ },
+ {
+  "title": "ДАНЬ МАРКУ АВРЕЛИЮ",
+  "markers": 1,
+  "per1k_words": 0.12,
+  "title_hit": false,
+  "verdict": "out",
+  "mode": "",
+  "reason": "пьяцца Венеция в Риме"
+ },
+ {
+  "title": "НАБЕРЕЖНАЯ НЕИСЦЕЛИМЫХ (полная редакция «Сочинений»)",
+  "markers": 85,
+  "per1k_words": 4.94,
+  "title_hit": true,
+  "verdict": "in",
+  "mode": "full",
+  "reason": "книга о Венеции; берётся полная редакция СИБ"
+ }
+]
