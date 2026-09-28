@@ -24,3 +24,4 @@ analysis/.venv-accent/
 .DS_Store
 !requirements.txt
 !analysis/requirements-accent.txt
+!docs/index.html
