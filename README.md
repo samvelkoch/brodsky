@@ -3,8 +3,11 @@
 Сбор текстов Иосифа Бродского, сборка EPUB и количественный анализ стиха и прозы
 с интерактивным отчётом.
 
-> Готовый интерактивный отчёт — `docs/index.html` (откройте в браузере или включите GitHub Pages
-> для папки `docs`). В нём есть цитаты из стихов в объёме, нужном для иллюстраций.
+> Готовые интерактивные отчёты (откройте в браузере или включите GitHub Pages для папки `docs`):
+> `docs/index.html` — «Бродский в числах», первая версия оформления;
+> `docs/prosvet.html` — «Бродский на просвет»: то же и ещё раздел «Мир Бродского»
+> (персонажи, места, транспорт, еда, напитки), новое оформление.
+> В них есть цитаты из стихов в объёме, нужном для иллюстраций.
 >
 > Тексты Бродского защищены авторским правом. Кроме отчёта, в репозитории только код:
 > корпус, книги, кэш страниц и собранные данные с цитатами создаются локально
@@ -24,7 +27,9 @@
 | 8. Ударения (отдельное окружение) | `analysis/export_lines.py`, `analysis/accent.py` | `accented.json` |
 | 9. Стих: размер, рифма, звук, фраза | `analysis/verse.py` | `verse.json` |
 | 10. Переломы стиля, группы, карта словаря | `analysis/style.py` | `style.json` |
-| 11. Отчёт | `analysis/patch_report3.py` (шаблон) + `analysis/build_report.py` | самодостаточный HTML |
+| 11. Отчёт, версия 1 | `analysis/patch_report3.py` (шаблон) + `analysis/build_report.py` | самодостаточный HTML |
+| 12. Персонажи, места, транспорт, еда, напитки | `analysis/world.py` | `world.json` |
+| 13. Отчёт, версия 2 «на просвет» | `analysis/patch_report4.py` (+ `report4.head.html`, `report4.chrome.js`, `report4.wmap.js`, `report4.world.js`) + `build_report.py out.html report4.template.html` | самодостаточный HTML |
 
 ## Запуск
 
@@ -41,6 +46,8 @@ python -m venv .venv-accent && .venv-accent/bin/pip install -r requirements-acce
 .venv-accent/bin/python accent.py                # ~25 мин на CPU
 python verse.py && python style.py
 python patch_report3.py && python build_report.py out.html
+python world.py                                    # персонажи, места, словари вещей
+python patch_report4.py && python build_report.py out2.html report4.template.html
 ```
 
 ## Методика

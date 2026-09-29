@@ -3,7 +3,8 @@ import sys
 from pathlib import Path
 HERE = Path(__file__).parent
 out = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "brodsky-v-chislah.html"
-t = (HERE / "report3.template.html").read_text(encoding="utf-8")
+tpl = sys.argv[2] if len(sys.argv) > 2 else "report3.template.html"
+t = (HERE / tpl).read_text(encoding="utf-8")
 safe = lambda s: s.replace("</", "<\\/")
 t = t.replace("/*DATA*/", safe((HERE / "stats.json").read_text(encoding="utf-8")), 1)
 import json
@@ -17,5 +18,7 @@ vs.pop("poem_feats", None)
 st = json.loads((HERE / "style.json").read_text(encoding="utf-8"))
 t = t.replace("/*VERSE*/", safe(json.dumps(vs, ensure_ascii=False, separators=(",", ":"))), 1)
 t = t.replace("/*STYLE*/", safe(json.dumps(st, ensure_ascii=False, separators=(",", ":"))), 1)
+if "/*WORLD*/" in t:
+    t = t.replace("/*WORLD*/", safe((HERE / "world.json").read_text(encoding="utf-8")), 1)
 out.write_text(t, encoding="utf-8")
 print(out, round(out.stat().st_size / 1024), "KB")

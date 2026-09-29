@@ -12,6 +12,8 @@ analysis/stats.json
 analysis/explorer.json
 analysis/verse.json
 analysis/style.json
+analysis/world.json
+analysis/world_graph.npz
 *.html
 !analysis/report2.template.html
 
@@ -25,3 +27,5 @@ analysis/.venv-accent/
 !requirements.txt
 !analysis/requirements-accent.txt
 !docs/index.html
+!docs/prosvet.html
+!analysis/report4.head.html
