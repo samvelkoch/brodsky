@@ -167,7 +167,7 @@
       u.textContent = `${fmt(G.N.length)} самых рифмуемых слов, ${fmt(nE)} ${plr(nE, 'пара', 'пары', 'пар')}`;
       const fams = []; fam.forEach((f, i) => { if (f >= 0) (fams[f] = fams[f] || []).push(i); });
       lg.innerHTML = fams.map((ids, f) => ids ? `<span><i style="background:${famCol(f)}"></i>${ids.sort((a, b) => WT.get(G.N[b]) - WT.get(G.N[a])).slice(0, 3).map(i => esc(G.N[i])).join(', ')}</span>` : '').join('');
-      note.textContent = `Цвет — «семья»: слова, которые рифмуются в основном друг с другом. Размер точки — сколько раз слово стоит в рифме. Данные — словарь рифм: ${nDict >= VS.rhyme_dict_size ? 'все ' + fmt(nDict) + ' слов с рифмой' : fmt(nDict) + ' самых рифмуемых слов из ' + fmt(VS.rhyme_dict_size)} и их пары. Нажмите на слово, чтобы увидеть его окружение.`;
+      note.textContent = `Цвет — «семья»: слова, которые рифмуются в основном друг с другом. Размер точки — сколько раз слово стоит в рифме. Данные — словарь рифм: ${nDict >= VS.rhyme_dict_size ? 'полный, ' + fmt(nDict) + ' ' + plr(nDict, 'слово', 'слова', 'слов') + ' с рифмой' : fmt(nDict) + ' самых рифмуемых слов из ' + fmt(VS.rhyme_dict_size)}, и их пары. Нажмите на слово, чтобы увидеть его окружение.`;
     }
   }
   function setMode() { seg(document.querySelector('#rg-mode'), [['ego', 'Вокруг слова'], ['map', 'Карта рифм']], mode, v => { mode = v; draw(); }); }

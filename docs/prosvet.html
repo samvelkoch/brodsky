@@ -5433,12 +5433,13 @@ const MFAM = [['двусложные: ямб, хорей',['ямб','хорей'
 /* словарь рифм */
 const RD=VS.rhyme_dict; const RDN={}; Object.keys(RD).forEach(k=>{ RDN[norm(k)]=k; });
 const RD_KEYS=Object.keys(RDN);
-$('#rd-size').textContent=Object.keys(RD).length>=VS.rhyme_dict_size?`${fmt(VS.rhyme_dict_size)} слов с рифмой, все в словаре`:`${fmt(VS.rhyme_dict_size)} слов с рифмой; в словаре — ${fmt(Object.keys(RD).length)} самых рифмуемых`;
+const rdPl=(n,a,b,c)=>{ const x=n%10,y=n%100; return x===1&&y!==11?a:(x>=2&&x<=4&&(y<12||y>14)?b:c); };
+$('#rd-size').textContent=Object.keys(RD).length>=VS.rhyme_dict_size?`${fmt(VS.rhyme_dict_size)} ${rdPl(VS.rhyme_dict_size,'слово','слова','слов')} с рифмой, все в словаре`:`${fmt(VS.rhyme_dict_size)} ${rdPl(VS.rhyme_dict_size,'слово','слова','слов')} с рифмой; в словаре — ${fmt(Object.keys(RD).length)} самых рифмуемых`;
 function rdOpen(word){
   const k=RDN[norm(word)]; const out=$('#rd-out'); $('#rd-input').value=word;
   if(!k){ out.innerHTML=`<p class="muted">Такого слова нет среди рифмуемых концов строк. Попробуйте другую форму: «ночь», «ночи», «ночью» — это разные рифмы.</p>`; return; }
   const P=RD[k]; const tot=P.reduce((a,x)=>a+x[1],0);
-  out.innerHTML=`<div class="big">${esc(k)}</div><p style="margin:0 0 8px">рифмуется ${fmt(tot)} раз; разных партнёров в списке — ${P.length}:</p>
+  out.innerHTML=`<div class="big">${esc(k)}</div><p style="margin:0 0 8px">рифмуется ${fmt(tot)} ${rdPl(tot,'раз','раза','раз')}; разных партнёров — ${P.length}:</p>
     <div class="rchips">${P.map(([w,n])=>`<button type="button" data-w="${esc(w)}">${esc(w)}<small>${n}</small></button>`).join('')}</div>`;
   out.querySelectorAll('button[data-w]').forEach(b=>b.addEventListener('click',()=>rdOpen(b.dataset.w)));
 }
@@ -6074,7 +6075,7 @@ document.fonts?.ready.then(()=>{ if(booted) drawPages(); else enqueue(drawPages)
       u.textContent = `${fmt(G.N.length)} самых рифмуемых слов, ${fmt(nE)} ${plr(nE, 'пара', 'пары', 'пар')}`;
       const fams = []; fam.forEach((f, i) => { if (f >= 0) (fams[f] = fams[f] || []).push(i); });
       lg.innerHTML = fams.map((ids, f) => ids ? `<span><i style="background:${famCol(f)}"></i>${ids.sort((a, b) => WT.get(G.N[b]) - WT.get(G.N[a])).slice(0, 3).map(i => esc(G.N[i])).join(', ')}</span>` : '').join('');
-      note.textContent = `Цвет — «семья»: слова, которые рифмуются в основном друг с другом. Размер точки — сколько раз слово стоит в рифме. Данные — словарь рифм: ${nDict >= VS.rhyme_dict_size ? 'все ' + fmt(nDict) + ' слов с рифмой' : fmt(nDict) + ' самых рифмуемых слов из ' + fmt(VS.rhyme_dict_size)} и их пары. Нажмите на слово, чтобы увидеть его окружение.`;
+      note.textContent = `Цвет — «семья»: слова, которые рифмуются в основном друг с другом. Размер точки — сколько раз слово стоит в рифме. Данные — словарь рифм: ${nDict >= VS.rhyme_dict_size ? 'полный, ' + fmt(nDict) + ' ' + plr(nDict, 'слово', 'слова', 'слов') + ' с рифмой' : fmt(nDict) + ' самых рифмуемых слов из ' + fmt(VS.rhyme_dict_size)}, и их пары. Нажмите на слово, чтобы увидеть его окружение.`;
     }
   }
   function setMode() { seg(document.querySelector('#rg-mode'), [['ego', 'Вокруг слова'], ['map', 'Карта рифм']], mode, v => { mode = v; draw(); }); }
