@@ -35,7 +35,7 @@
 | 10. Переломы стиля, группы, карта словаря | `analysis/style.py` | `style.json` |
 | 11. Отчёт, версия 1 | `analysis/patch_report3.py` (шаблон) + `analysis/build_report.py` | самодостаточный HTML |
 | 12. Персонажи, места, транспорт, еда, напитки | `analysis/world.py` | `world.json` |
-| 13. Отчёт, версия 2 «на просвет» | `analysis/patch_report4.py` (+ `report4.head.html`, `report4.chrome.js`, `report4.wmap.js`, `report4.world.js`) + `build_report.py out.html report4.template.html` | самодостаточный HTML |
+| 13. Отчёт, версия 2 «на просвет» | `analysis/patch_report4.py` (+ `report4.head.html`, `report4.chrome.js`, `report4.wmap.js`, `report4.world.js`, `report4.rgraph.js` — граф рифм) + `build_report.py out.html report4.template.html` | самодостаточный HTML |
 
 ## Запуск
 

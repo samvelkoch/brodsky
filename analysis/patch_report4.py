@@ -199,5 +199,7 @@ scripts = scripts[:a] + (HERE / "report4.world.js").read_text(encoding="utf-8") 
 scripts = sub1(scripts, '<script type="application/json" id="data-style">/*STYLE*/</script>', '<script type="application/json" id="data-style">/*STYLE*/</script>\n<script type="application/json" id="data-world">/*WORLD*/</script>')
 
 head = (HERE / "report4.head.html").read_text(encoding="utf-8")
-(HERE / "report4.template.html").write_text(head + "\n" + new_body + scripts, encoding="utf-8")
+# граф рифм — отдельным скриптом после основного: берёт словарь рифм и хелперы графиков
+rgraph = "<script>\n" + (HERE / "report4.rgraph.js").read_text(encoding="utf-8") + "</script>\n"
+(HERE / "report4.template.html").write_text(head + "\n" + new_body + scripts + "\n" + rgraph, encoding="utf-8")
 print("report4.template.html", round((HERE / "report4.template.html").stat().st_size / 1024), "KB")

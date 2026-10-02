@@ -351,9 +351,9 @@ V["rhyme"] = {
     "top_pairs": [[a, b, n] for (a, b), n in rhyme_pairs.most_common(40)],
     "schemes_all": scheme_all.most_common(12),
 }
-# словарь рифм: слово → партнёры (слова с ≥1 рифмой; для отчёта — 4000 самых «рифмуемых»)
+# словарь рифм: слово → все партнёры, полностью (все слова с ≥1 рифмой; самые «рифмуемые» — первыми)
 rd = sorted(rhyme_dict.items(), key=lambda kv: -sum(kv[1].values()))
-V["rhyme_dict"] = {w: [[x, n] for x, n in c.most_common(14)] for w, c in rd[:4000]}
+V["rhyme_dict"] = {w: [[x, n] for x, n in c.most_common()] for w, c in rd}
 V["rhyme_dict_size"] = len(rhyme_dict)
 seen = set()
 

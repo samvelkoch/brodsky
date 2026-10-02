@@ -82,7 +82,7 @@ const MFAM = [['двусложные: ямб, хорей',['ямб','хорей'
 /* словарь рифм */
 const RD=VS.rhyme_dict; const RDN={}; Object.keys(RD).forEach(k=>{ RDN[norm(k)]=k; });
 const RD_KEYS=Object.keys(RDN);
-$('#rd-size').textContent=`${fmt(VS.rhyme_dict_size)} слов с рифмой; в словаре — ${fmt(Object.keys(RD).length)} самых рифмуемых`;
+$('#rd-size').textContent=Object.keys(RD).length>=VS.rhyme_dict_size?`${fmt(VS.rhyme_dict_size)} слов с рифмой, все в словаре`:`${fmt(VS.rhyme_dict_size)} слов с рифмой; в словаре — ${fmt(Object.keys(RD).length)} самых рифмуемых`;
 function rdOpen(word){
   const k=RDN[norm(word)]; const out=$('#rd-out'); $('#rd-input').value=word;
   if(!k){ out.innerHTML=`<p class="muted">Такого слова нет среди рифмуемых концов строк. Попробуйте другую форму: «ночь», «ночи», «ночью» — это разные рифмы.</p>`; return; }
