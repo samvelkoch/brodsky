@@ -1,4 +1,5 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}@media (hover:none) and (pointer:coarse){input[type=search],input[type=text],select,textarea{font-size:16px!important}}
+</style></head><body>
 <title>Бродский на просвет</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -5154,7 +5155,7 @@ function renderWord(k){
   show(40);
   $('#x-hl').addEventListener('click',()=>{ $('#hl-input').value=dw; setHL(k); goTo('top'); });
 }
-$('#x-input').addEventListener('input',e=>{ const k=norm(e.target.value); if(LEX[k]){ renderWord(k); xSug(X_EX); } else { xSug(k?suggest(k,10):X_EX); } });
+$('#x-input').addEventListener('input',e=>{ const k=norm(e.target.value); if(LEX[k]){ renderWord(k); xSug(X_EX); } else { const s=k?suggest(k,10):X_EX; xSug(s); if(k){ const t=e.target.value.trim(); $('#x-out').innerHTML=`<p class="muted" style="margin:0">Слова «${esc(t)}» нет в индексе. Введите начальную форму («стекло», а не «стекла»)${s.length?' или выберите подсказку выше':''}.</p>`; } } });
 xSug(X_EX);
 
 /* ================= слова эпох и сравнение ================= */
@@ -5443,7 +5444,8 @@ function rdOpen(word){
 function rdSug(q){ const h=$('#rd-sug'); const nq=norm(q); const L=nq?RD_KEYS.filter(k=>k.startsWith(nq)).slice(0,10).map(k=>RDN[k]):['ночь','меня','век','времени','глаз','тишина','любовь','свет'].filter(w=>RDN[norm(w)]);
   h.innerHTML=L.map(w=>`<button type="button" class="chip" data-w="${esc(w)}">${esc(w)}</button>`).join('');
   h.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>rdOpen(b.dataset.w))); }
-$('#rd-input').addEventListener('input',e=>{ const v=e.target.value; if(RDN[norm(v)]) rdOpen(v); rdSug(v); });
+function rdMiss(q){ const t=q.trim(), nq=norm(q), has=RD_KEYS.some(k=>k.startsWith(nq)); $('#rd-out').innerHTML=`<p class="muted">«${esc(t)}» нет среди рифмуемых концов строк. ${has?'Выберите слово из подсказок выше. ':''}Формы считаются отдельно: «ночь», «ночи», «ночью» — разные рифмы.</p>`; }
+$('#rd-input').addEventListener('input',e=>{ const v=e.target.value; if(RDN[norm(v)]) rdOpen(v); else if(v.trim()) rdMiss(v); rdSug(v); });
 rdSug(''); rdOpen(RDN['ночь']?'ночь':RD_KEYS[0]);
 
 /* ---------- перенос и фраза ---------- */

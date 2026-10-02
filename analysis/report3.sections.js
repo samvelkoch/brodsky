@@ -94,7 +94,8 @@ function rdOpen(word){
 function rdSug(q){ const h=$('#rd-sug'); const nq=norm(q); const L=nq?RD_KEYS.filter(k=>k.startsWith(nq)).slice(0,10).map(k=>RDN[k]):['ночь','меня','век','времени','глаз','тишина','любовь','свет'].filter(w=>RDN[norm(w)]);
   h.innerHTML=L.map(w=>`<button type="button" class="chip" data-w="${esc(w)}">${esc(w)}</button>`).join('');
   h.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>rdOpen(b.dataset.w))); }
-$('#rd-input').addEventListener('input',e=>{ const v=e.target.value; if(RDN[norm(v)]) rdOpen(v); rdSug(v); });
+function rdMiss(q){ const t=q.trim(), nq=norm(q), has=RD_KEYS.some(k=>k.startsWith(nq)); $('#rd-out').innerHTML=`<p class="muted">«${esc(t)}» нет среди рифмуемых концов строк. ${has?'Выберите слово из подсказок выше. ':''}Формы считаются отдельно: «ночь», «ночи», «ночью» — разные рифмы.</p>`; }
+$('#rd-input').addEventListener('input',e=>{ const v=e.target.value; if(RDN[norm(v)]) rdOpen(v); else if(v.trim()) rdMiss(v); rdSug(v); });
 rdSug(''); rdOpen(RDN['ночь']?'ночь':RD_KEYS[0]);
 
 /* ---------- перенос и фраза ---------- */

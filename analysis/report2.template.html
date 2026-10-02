@@ -864,7 +864,7 @@ function renderWord(k){
   show(40);
   $('#x-hl').addEventListener('click',()=>{ $('#hl-input').value=dw; setHL(k); $('#top').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}); });
 }
-$('#x-input').addEventListener('input',e=>{ const k=norm(e.target.value); if(LEX[k]){ renderWord(k); xSug(X_EX); } else { xSug(k?suggest(k,10):X_EX); } });
+$('#x-input').addEventListener('input',e=>{ const k=norm(e.target.value); if(LEX[k]){ renderWord(k); xSug(X_EX); } else { const s=k?suggest(k,10):X_EX; xSug(s); if(k){ const t=e.target.value.trim(); $('#x-out').innerHTML=`<p class="muted" style="margin:0">Слова «${esc(t)}» нет в индексе. Введите начальную форму («стекло», а не «стекла»)${s.length?' или выберите подсказку выше':''}.</p>`; } } });
 xSug(X_EX);
 
 /* ================= слова эпох и сравнение ================= */
