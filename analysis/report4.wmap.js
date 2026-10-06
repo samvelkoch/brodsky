@@ -50,7 +50,7 @@ function wmApply(){
   const inGroup=m=>WM.group<0||m.c===WM.group;
   items.forEach(it=>{ const m=it.o.m; const dim=(WM.group>=0&&!inGroup(m))||(focus&&m.k!==focus&&!nb.has(m.k));
     const absent=it.known&&it.cnt===0; const isF=m.k===focus; const isN=nb.has(m.k);
-    const tip=`${esc(m.w)}<br>${it.known?`${fmt(it.cnt)} раз в стихах${p>=0?', '+PER[p]:''}`:`${fmt(m.n)} раз в стихах`}<br>нажмите, чтобы увидеть близкие слова`;
+    const tip=`${esc(m.w)}<br>${it.known?`${pn(it.cnt,RUF.raz)} в стихах${p>=0?', '+PER[p]:''}`:`${pn(m.n,RUF.raz)} в стихах`}<br>нажмите, чтобы увидеть близкие слова`;
     const ink=isF||isN||it.rise?'--mark':(dim?'--muted':'--ink');
     it.o.t.setAttribute('data-tip',tip); it.o.c.setAttribute('data-tip',tip);
     const st=it.o.t.style; st.fontSize=it.fs.toFixed(1)+'px'; st.fill=css(ink); st.fontWeight=(isF||it.rise)?'700':'400';
@@ -72,7 +72,7 @@ function wmReadout(){ const host=$('#wm-read'); const p=WM.per, k=WM.sel;
   const link=(kk)=>`<button type="button" class="chip" data-wk="${esc(kk)}">${esc(disp(kk))}</button>`;
   let html;
   if(k){ const m=WMK[k]; const nbs=(ST.neighbors[k]||[]);
-    html=`<b>${esc(m.w)}</b> — ${fmt(wmCount(m,-1))} раз в стихах${wmKnown(m)?`; по периодам: ${PER.map((pp,i)=>`${pshort(pp)}: ${fmt(wmCount(m,i))}`).join(', ')}`:''}.<br>Близкие по употреблению (линии на карте): ${nbs.map(link).join(' ')||'—'} <button type="button" class="btn" data-open="${esc(k)}">Открыть в словоискателе →</button>`;
+    html=`<b>${esc(m.w)}</b> — ${pn(wmCount(m,-1),RUF.raz)} в стихах${wmKnown(m)?`; по периодам: ${PER.map((pp,i)=>`${pshort(pp)}: ${fmt(wmCount(m,i))}`).join(', ')}`:''}.<br>Близкие по употреблению (линии на карте): ${nbs.map(link).join(' ')||'—'} <button type="button" class="btn" data-open="${esc(k)}">Открыть в словоискателе →</button>`;
   } else if(p>=0){ const top=wmTop(p);
     html=`<b>${esc(PER[p])}.</b> Красным выделены слова, которых в эти годы заметно больше, чем в среднем по всем стихам (не реже чем в 1,5 раза, не меньше 6 употреблений): ${top.map(m=>link(m.k)).join(' ')||'—'}`;
   } else html=`Размер слова — как часто Бродский его употребляет; цветная область — группа слов, которые он ставит в похожее окружение. Выберите период или нажмите «Играть», чтобы увидеть, как менялся словарь, и нажмите на слово, чтобы увидеть его ближайших соседей.`;

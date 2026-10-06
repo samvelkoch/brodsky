@@ -82,13 +82,12 @@ const MFAM = [['двусложные: ямб, хорей',['ямб','хорей'
 /* словарь рифм */
 const RD=VS.rhyme_dict; const RDN={}; Object.keys(RD).forEach(k=>{ RDN[norm(k)]=k; });
 const RD_KEYS=Object.keys(RDN);
-const rdPl=(n,a,b,c)=>{ const x=n%10,y=n%100; return x===1&&y!==11?a:(x>=2&&x<=4&&(y<12||y>14)?b:c); };
-$('#rd-size').textContent=Object.keys(RD).length>=VS.rhyme_dict_size?`${fmt(VS.rhyme_dict_size)} ${rdPl(VS.rhyme_dict_size,'слово','слова','слов')} с рифмой, все в словаре`:`${fmt(VS.rhyme_dict_size)} ${rdPl(VS.rhyme_dict_size,'слово','слова','слов')} с рифмой; в словаре — ${fmt(Object.keys(RD).length)} самых рифмуемых`;
+$('#rd-size').textContent=Object.keys(RD).length>=VS.rhyme_dict_size?`${fmt(VS.rhyme_dict_size)} ${plural(VS.rhyme_dict_size,RUF.word)} с рифмой, все в словаре`:`${fmt(VS.rhyme_dict_size)} ${plural(VS.rhyme_dict_size,RUF.word)} с рифмой; в словаре — ${fmt(Object.keys(RD).length)} самых рифмуемых`;
 function rdOpen(word){
   const k=RDN[norm(word)]; const out=$('#rd-out'); $('#rd-input').value=word;
   if(!k){ out.innerHTML=`<p class="muted">Такого слова нет среди рифмуемых концов строк. Попробуйте другую форму: «ночь», «ночи», «ночью» — это разные рифмы.</p>`; return; }
   const P=RD[k]; const tot=P.reduce((a,x)=>a+x[1],0);
-  out.innerHTML=`<div class="big">${esc(k)}</div><p style="margin:0 0 8px">рифмуется ${fmt(tot)} ${rdPl(tot,'раз','раза','раз')}; разных партнёров — ${P.length}:</p>
+  out.innerHTML=`<div class="big">${esc(k)}</div><p style="margin:0 0 8px">рифмуется ${fmt(tot)} ${plural(tot,RUF.raz)}; разных партнёров — ${P.length}:</p>
     <div class="rchips">${P.map(([w,n])=>`<button type="button" data-w="${esc(w)}">${esc(w)}<small>${n}</small></button>`).join('')}</div>`;
   out.querySelectorAll('button[data-w]').forEach(b=>b.addEventListener('click',()=>rdOpen(b.dataset.w)));
 }
@@ -106,9 +105,9 @@ rdSug(''); rdOpen(RDN['ночь']?'ночь':RD_KEYS[0]);
     e.slice(0,2).map(([a,b,pid])=>`<div class="ex">${esc(a)}<br>${esc(b)}</div><div class="src">${esc(pidTitle(pid))}</div>`).join('')}</div>`);
   g.insertAdjacentHTML('beforeend',`<div class="term"><h3>Фраза через строфу</h3><p class="what">Предложение начинается в одной строфе, а кончается в следующей. Строфа перестаёт быть законченной мыслью и становится просто рамкой.</p></div>`);
   const H=VS.phrase.hist; const keys=Object.keys(H).map(Number).sort((a,b)=>a-b);
-  vbars($('#c-shist'),keys.map(k=>({l:k===25?'25+':String(k),v:H[k],tip:`${k===25?'25 и больше':k} строк: ${fmt(H[k])} предложений`})),{h:220,every:4,fmtv:fmt});
+  vbars($('#c-shist'),keys.map(k=>({l:k===25?'25+':String(k),v:H[k],tip:`${k===25?'25 и больше строк':pnr(k,RUF.line)}: ${pn(H[k],RUF.sent)}`})),{h:220,every:4,fmtv:fmt});
   dots($('#c-cross'),VS.phrase.by_period.map((r,i)=>({l:PSH[i],v:r.cross_stanza,tip:`${PER[i]}: ${fmt1(r.cross_stanza)}% предложений переходят в следующую строфу<br>медиана фразы — ${r.med_lines} стр., каждая десятая длиннее ${r.p90_lines} стр.`})),{h:220,min:0,max:Math.max(20,niceMax(Math.max(...VS.phrase.by_period.map(r=>r.cross_stanza)))),unit:'%',fmtv:v=>fmt1(v)});
-  hbars($('#c-longsent'),VS.phrase.longest.slice(0,10).map(([n,st,pid])=>({l:(t=>t.length>38?t.slice(0,36)+'…':t)(tidy(PS[pid].t)),v:n,tip:`${esc(pidTitle(pid))}<br>одно предложение на ${n} строк и ${st} строф`})),{labelW:260,rowH:22,fmtv:fmt});
+  hbars($('#c-longsent'),VS.phrase.longest.slice(0,10).map(([n,st,pid])=>({l:(t=>t.length>38?t.slice(0,36)+'…':t)(tidy(PS[pid].t)),v:n,tip:`${esc(pidTitle(pid))}<br>одно предложение на ${n} ${plural(n,['строку','строки','строк'])} и ${st} ${plural(st,['строфу','строфы','строф'])}`})),{labelW:260,rowH:22,fmtv:fmt});
 })();
 
 /* ---------- звук ---------- */
@@ -116,7 +115,7 @@ rdSug(''); rdOpen(RDN['ночь']?'ночь':RD_KEYS[0]);
   const B=VS.sound.by_period; const o=B.reduce((a,r)=>a+r.obs*r.n,0)/B.reduce((a,r)=>a+r.n,0), b=B.reduce((a,r)=>a+(r.base||0)*r.n,0)/B.reduce((a,r)=>a+r.n,0);
   const ratio=o/b;
   $('#f-sound').textContent=`В стихах ${fmt1(o)}% строк содержат три разных слова и больше на один звук; в случайных строках из тех же слов — ${fmt1(b)}%. `+
-    (ratio>=1.15?`Совпадения случаются в ${fmt1(ratio)} раза чаще, чем если бы слова стояли наугад: звукопись — сознательный приём.`
+    (ratio>=1.15?`Совпадения случаются в ${fmt1(ratio)} ${plural(ratio,RUF.raz,1)} чаще, чем если бы слова стояли наугад: звукопись — сознательный приём.`
       :ratio<=0.9?`Это даже реже, чем при случайном порядке слов.`
       :`Разница невелика: аллитерация у Бродского — не систематический приём, а отдельные яркие строки вроде тех, что ниже.`);
   chart(()=>{ const box=$('#c-allit'); const h=230; const [s,w]=svg(box,h); const L=40,R=14,T=16,B2=28; const vals=B.flatMap(r=>[r.obs,r.base||0]); const hi=niceMax(Math.max(...vals)*1.15);
@@ -153,7 +152,7 @@ function drawWmap(){
   const placed=[]; const fitsBox=(b)=>!placed.some(p=>b.x<p.x+p.w&&b.x+b.w>p.x&&b.y<p.y+p.h&&b.y+b.h>p.y);
   M.slice().sort((a,b)=>b.n-a.n).forEach(m=>{ const on=wmGroup<0||m.c===wmGroup; const fs=10.5+7*Math.sqrt(m.n/nmax);
     const X=sx(m.x), Y=sy(m.y); const bw=m.w.length*fs*0.56+4, bh=fs+2; const box={x:X-bw/2,y:Y-fs,w:bw,h:bh};
-    const tip=`${esc(m.w)}: ${fmt(m.n)} раз в стихах<br>близкие: ${(ST.neighbors[m.k]||[]).slice(0,5).map(disp).join(', ')||'—'}`;
+    const tip=`${esc(m.w)}: ${pn(m.n,RUF.raz)} в стихах<br>близкие: ${(ST.neighbors[m.k]||[]).slice(0,5).map(disp).join(', ')||'—'}`;
     let node;
     if(fitsBox(box)||(wmGroup>=0&&m.c===wmGroup)){ placed.push(box);
       node=txt(s,X,Y,m.w,{'text-anchor':'middle',style:`font-family:var(--f-body);font-size:${fs.toFixed(1)}px;fill:var(${on?(wmGroup<0?'--ink':'--accent'):'--muted'});opacity:${on?1:.3};${wmGroup===m.c?'font-weight:600;':''}`,'data-tip':tip,tabindex:0,role:'button','aria-label':m.w});
@@ -173,7 +172,7 @@ let distMode='form';
 (function(){
   const cpf=ST.cp_form.map(c=>c[0]), cpw=ST.cp_words.map(c=>c[0]);
   const yrs=ST.years;
-  $('#f-cp').textContent=`По форме стиха самые резкие переломы — ${cpf.slice(0,3).sort((a,b)=>a-b).map(y=>y+' год').join(', ')}; по словарю — ${cpw.slice(0,3).sort((a,b)=>a-b).map(y=>y+' год').join(', ')}. Год перелома — первый год нового отрезка; учтены годы, где шесть и больше стихотворений (${yrs.length} лет).`;
+  $('#f-cp').textContent=`По форме стиха самые резкие переломы — ${cpf.slice(0,3).sort((a,b)=>a-b).map(y=>y+' год').join(', ')}; по словарю — ${cpw.slice(0,3).sort((a,b)=>a-b).map(y=>y+' год').join(', ')}. Год перелома — первый год нового отрезка; учтены годы, где шесть и больше стихотворений (${pnr(yrs.length,['год','года','лет'])}).`;
   const draw=()=>{ const D2=distMode==='form'?ST.dist_form:ST.dist_words; const cps=distMode==='form'?cpf:cpw;
     $('#dist-t').textContent=distMode==='form'?'Насколько похожи годы по форме стиха':'Насколько похожи годы по самым частым словам';
     chart(()=>{ const box=$('#c-dist'); const n=yrs.length; const W=box.clientWidth||700; const L=46,T=10; const cell=Math.max(8,Math.min(26,Math.floor((W-L-10)/n))); const h=T+cell*n+34; const [s,w]=svg(box,h);
@@ -196,7 +195,7 @@ let distMode='form';
       txt(s,sx(0),h-2,yrs[0],{style:'font-size:10px;fill:var(--muted)'}); txt(s,sx(vals.length-1),h-2,yrs[yrs.length-1],{'text-anchor':'end',style:'font-size:10px;fill:var(--muted)'});
       vals.forEach((v,i)=>el('rect',{class:'hit',x:sx(i)-6,y:0,width:12,height:h,'data-tip':`${lab}, ${yrs[i]}: ${fmt2(v)}<br>стихотворений: ${ST.year_poems[i]}`},s)); });
   },$('#c-feats'));
-  const CLs=ST.clusters; $('#cl-u').textContent=`${fmt(ST.cluster_n)} стихотворений от 12 строк; строка — группа, ячейка — сколько её стихов в каждом периоде`;
+  const CLs=ST.clusters; $('#cl-u').textContent=`${pn(ST.cluster_n,RUF.poem)} от 12 строк; строка — группа, ячейка — сколько её стихов в каждом периоде`;
   $('#t-clusters').textContent=`Стихотворения разложены на шесть групп только по форме (длина строки, размер, рифма, перенос, фраза, существительные), без дат. Совпадение групп с периодами — ${fmt2(ST.ari)} по шкале, где 0 — случайное совпадение, а 1 — полное; случайная раскладка даёт не больше ${fmt2(ST.ari_null95)}. ${ST.ari>0.3?'Группы заметно повторяют периоды.':ST.ari>ST.ari_null95?'Связь с периодами есть, но слабая: стиль меняется постепенно, а внутри каждого периода уживаются очень разные стихи.':'Группы не повторяют периоды.'}`;
   heatTable($('#c-clusters'),CLs.map(c=>c.desc.join(' · ')),PSH,CLs.map(c=>c.by_period),{labelW:Math.min(420,($('#c-clusters').clientWidth||700)*0.55),cellH:30,fmtv:v=>fmt(v),
     tipf:(i,j)=>`группа: ${CLs[i].desc.join(', ')}<br>${PER[j]}: ${CLs[i].by_period[j]} стихотв. из ${CLs[i].n}; медианный год группы — ${CLs[i].year_med||'—'}`});
@@ -217,7 +216,7 @@ let distMode='form';
       return [d1-d0>=10?(c1>=50?V('v-part','отчасти'):V('v-yes','подтверждается')):V('v-no','не подтверждается'),
         `Дольник и тактовик: ${Math.round(d0)}% строк в 1961–1966 → ${Math.round(d1)}% в 1985–1996. Классические размеры в поздние годы — всё ещё ${Math.round(c1)}%.`]; }],
     ['Строка с годами становится длиннее', ()=>[SPp[5].med>SPp[1].med?V('v-yes','подтверждается'):V('v-no','не подтверждается'),
-        `Типичная строка: ${SPp[0].med} слогов в 1957–1960, ${SPp[1].med} в 1961–1966, ${SPp[5].med} в 1990-е.`]],
+        `Типичная строка: ${pnr(SPp[0].med,RUF.syl)} в 1957–1960, ${SPp[1].med} в 1961–1966, ${SPp[5].med} в 1990-е.`]],
     ['Фраза у Бродского не помещается в строфу', ()=>{ const a=PH[1].cross_stanza, b=Math.max(...PH.slice(2).map(r=>r.cross_stanza));
       return [b>=50?V('v-yes','подтверждается'):b>a?V('v-part','отчасти'):V('v-no','не подтверждается'),
         `Через границу строфы переходит ${fmt1(a)}% предложений в 1961–1966 и до ${fmt1(b)}% в поздние периоды. Растёт, но большинство фраз строфу не покидает.`]; }],
@@ -247,7 +246,7 @@ let distMode='form';
     [`${fmt1(FFp[1].share)}% → ${fmt1(FFp[2].share)}%`,'строк обрывается на предлоге, союзе или частице — скачок около 1967 года'],
     [`${Math.round(T[1]['точная'])}% → ${Math.round(T[5]['точная'])}%`,'строк с точной рифмой: 1961–1966 против 1990-х'],
     [cpf.join(', '),'годы, где алгоритм без подсказки нашёл самые резкие переломы формы стиха'],
-    [`${rd0[0]} — ${rd0[1]}`,`самая частая рифма: ${rd0[2]} раз`]];
+    [`${rd0[0]} — ${rd0[1]}`,`самая частая рифма: ${pnr(rd0[2],RUF.raz)}`]];
   $('#findings').innerHTML=find.map(([b,t])=>`<div><b>${esc(b)}</b><span>${esc(t)}</span></div>`).join('');
 })();
 

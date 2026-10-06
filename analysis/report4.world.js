@@ -12,7 +12,6 @@ function bindQuotes(host){ host.querySelectorAll('button.lnk').forEach(b=>b.addE
 function sparkSVG(vals,{h=46,color='var(--s1)',labels=PSH,unit=''}={}){ const n=vals.length, w=n*30, mx=Math.max(...vals,1e-9);
   const bars=vals.map((v,i)=>{ const bh=Math.max(v>0?2:0,(h-14)*v/mx); return `<rect x="${i*30+4}" y="${h-12-bh}" width="22" height="${bh}" rx="2" fill="${color}" data-tip="${esc(labels[i])}: ${fmt1(v)}${unit}"/><text x="${i*30+15}" y="${h-1}" text-anchor="middle" style="font-size:8.5px;fill:var(--muted)">${esc(String(labels[i]).slice(2,4)+'–'+String(labels[i]).slice(-2))}</text>`; }).join('');
   return `<svg viewBox="0 0 ${w} ${h}" width="100%" style="max-width:${w*1.5}px;display:block" role="img">${bars}</svg>`; }
-const RU_PLURAL=(n,a,b,c)=>{ const m=n%100, d=n%10; return (m>10&&m<20)?c:(d===1?a:(d>1&&d<5?b:c)); };
 
 /* ---------- карточка сущности (лица, места, слова) ---------- */
 function entityCard(host,o){
@@ -38,7 +37,7 @@ const KINDN={person:'человек',sacred:'божественное имя'};
   const bp=[...PPALL].sort((a,b)=>b.poems-a.poems||b.np-a.np), br=[...PPALL].sort((a,b)=>b.essays-a.essays||b.nr-a.nr);
   const top=(arr,f,n)=>arr.filter(x=>f(x)>0).slice(0,n).map(x=>x.name).join(', ');
   const E=PPL.edges.slice().sort((a,b)=>b[2]-a[2])[0];
-  $('#f-pers').textContent=`В текстах Бродского названо по имени ${fmt(PPL.total)} ${RU_PLURAL(PPL.total,'лицо','лица','лиц')}, в стихах — ${fmt(PPL.poems_named)}. Больше всего стихотворений, где они названы: ${top(bp,x=>x.poems,4)}. В прозе, по числу текстов: ${top(br,x=>x.essays,4)}. Ближе всего друг к другу стоят ${PN[E[0]].name} и ${PN[E[1]].name}: ${E[2]} ${RU_PLURAL(E[2],'общая строфа или абзац','общие строфы или абзацы','общих строф или абзацев')}.`;
+  $('#f-pers').textContent=`В текстах Бродского названо по имени ${fmt(PPL.total)} ${plural(PPL.total, ['лицо', 'лица', 'лиц'])}, в стихах — ${fmt(PPL.poems_named)}. Больше всего стихотворений, где они названы: ${top(bp,x=>x.poems,4)}. В прозе, по числу текстов: ${top(br,x=>x.essays,4)}. Ближе всего друг к другу стоят ${PN[E[0]].name} и ${PN[E[1]].name}: ${E[2]} ${plural(E[2], ['общая строфа или абзац', 'общие строфы или абзацы', 'общих строф или абзацев'])}.`;
 })();
 seg($('#seg-ppmode'),[['all','стихи и проза'],['poems','стихи'],['prose','проза']],PP.mode,v=>{ PP.mode=v; PP.per=-1; ppApply(); });
 (function(){ const h=$('#pp-per'); [[-1,'все годы'],...PER.map((p,i)=>[i,pshort(p)])].forEach(([i,l])=>{ const b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=l; b.setAttribute('aria-pressed',String(i===PP.per));
@@ -89,7 +88,7 @@ function ppCard(){
   const nbs=(sel.nb||[]).map(([j,w])=>({label:PN[j].name+' · '+w,fn:()=>{ PP.other=null; PP.sel=j; ppApply(); }}));
   const yrs=sel.y0?(sel.y0===sel.y1?String(sel.y0):sel.y0+'–'+sel.y1):'';
   entityCard(host,{eyebrow:'Карточка лица',title:sel.name,meta:(KINDN[sel.kind]||'')+(yrs?' · в стихах '+yrs+' годов':''),
-    tiles:[[fmt(sel.np),'упоминаний в стихах'],[fmt(sel.nr),'в прозе'],[fmt(sel.poems),RU_PLURAL(sel.poems,'стихотворение','стихотворения','стихотворений')],[fmt(sel.essays),RU_PLURAL(sel.essays,'прозаический текст','прозаических текста','прозаических текстов')],[fmt(sel.texts),'текстов всего'],[sel.i!=null?fmt(sel.nb.length):'—','ближайших имён']],
+    tiles:[[fmt(sel.np),plural(sel.np,['упоминание в стихах','упоминания в стихах','упоминаний в стихах'])],[fmt(sel.nr),'в прозе'],[fmt(sel.poems),plural(sel.poems, ['стихотворение', 'стихотворения', 'стихотворений'])],[fmt(sel.essays),plural(sel.essays, ['прозаический текст', 'прозаических текста', 'прозаических текстов'])],[fmt(sel.texts),plural(sel.texts,['текст всего','текста всего','текстов всего'])],[sel.i!=null?fmt(sel.nb.length):'—','ближайших имён']],
     per:sel.per,chips:nbs,chipsTitle:'Чаще всего рядом (сколько общих строф или абзацев)',ctx:sel.ctx,word:sel.name,
     note:sel.i==null?'Это имя не попало в сеть: оно встречается реже, чем у 120 самых упоминаемых.':''});
 }
@@ -109,7 +108,7 @@ chart(drawNet,$('#c-net'));
   hbars($('#c-pp-poems'),rows(bp,x=>x.poems),{color:'var(--s1)',labelW:110,rowH:22,fmtv:fmt,onClick:open});
   hbars($('#c-pp-prose'),rows(br,x=>x.essays),{color:'var(--s2)',labelW:110,rowH:22,fmtv:fmt,onClick:open});
   const hp=[...PPALL].sort((a,b)=>b.np-a.np).slice(0,20);
-  heatTable($('#c-pp-heat'),hp.map(x=>x.name),PSH,hp.map(x=>x.per.slice(0,6)),{labelW:120,cellH:24,fmtv:v=>v?fmt(Math.round(v)):'',tipf:(i,j)=>`${esc(hp[i].name)} · ${PER[j]}: ${fmt(hp[i].per[j])} упоминаний в стихах`,onRow:i=>{ ppSelectByName(hp[i].name); goTo('personazhi'); }});
+  heatTable($('#c-pp-heat'),hp.map(x=>x.name),PSH,hp.map(x=>x.per.slice(0,6)),{labelW:120,cellH:24,fmtv:v=>v?fmt(Math.round(v)):'',tipf:(i,j)=>`${esc(hp[i].name)} · ${PER[j]}: ${pn(hp[i].per[j],['упоминание в стихах','упоминания в стихах','упоминаний в стихах'])}`,onRow:i=>{ ppSelectByName(hp[i].name); goTo('personazhi'); }});
   const all=[...PPALL].sort((a,b)=>a.name.localeCompare(b.name,'ru'));
   $('#pp-all-n').textContent=fmt(all.length);
   $('#pp-all').addEventListener('toggle',function(){ if(!this.open||$('#pp-allchips').childElementCount) return; const h=$('#pp-allchips');
@@ -121,14 +120,14 @@ const PL=WD.places;
 (function(){
   const NP_=PL.named; const bp=[...NP_].sort((a,b)=>b.poems-a.poems||b.np-a.np), br=[...NP_].sort((a,b)=>b.essays-a.essays||b.nr-a.nr);
   const top=(arr,f,n)=>arr.filter(x=>f(x)>0).slice(0,n).map(x=>x.name).join(', ');
-  $('#f-place').textContent=`Бродский называет ${fmt(PL.total_named)} ${RU_PLURAL(PL.total_named,'место','места','мест')}: города, страны, реки, моря. Больше всего стихотворений, где они названы: ${top(bp,x=>x.poems,5)}. В прозе, по числу текстов: ${top(br,x=>x.essays,5)}.`;
+  $('#f-place').textContent=`Бродский называет ${fmt(PL.total_named)} ${plural(PL.total_named, ['место', 'места', 'мест'])}: города, страны, реки, моря. Больше всего стихотворений, где они названы: ${top(bp,x=>x.poems,5)}. В прозе, по числу текстов: ${top(br,x=>x.essays,5)}.`;
   const pick=o=>{ entityCard($('#pl-card'),{eyebrow:'Карточка места',title:o.name,meta:o.y0?'в стихах '+(o.y0===o.y1?o.y0:o.y0+'–'+o.y1)+' годов':'',
-    tiles:[[fmt(o.np),'упоминаний в стихах'],[fmt(o.nr),'в прозе'],[fmt(o.poems),RU_PLURAL(o.poems,'стихотворение','стихотворения','стихотворений')],[fmt(o.essays),RU_PLURAL(o.essays,'прозаический текст','прозаических текста','прозаических текстов')],[fmt(o.texts),'текстов всего'],[fmt(o.n),'упоминаний']],per:o.per,ctx:o.ctx,word:o.name,color:'var(--s2)'}); };
+    tiles:[[fmt(o.np),plural(o.np,['упоминание в стихах','упоминания в стихах','упоминаний в стихах'])],[fmt(o.nr),'в прозе'],[fmt(o.poems),plural(o.poems, ['стихотворение', 'стихотворения', 'стихотворений'])],[fmt(o.essays),plural(o.essays, ['прозаический текст', 'прозаических текста', 'прозаических текстов'])],[fmt(o.texts),plural(o.texts,['текст всего','текста всего','текстов всего'])],[fmt(o.n),plural(o.n,RUF.mention)]],per:o.per,ctx:o.ctx,word:o.name,color:'var(--s2)'}); };
   const tp=[...NP_].sort((a,b)=>b.texts-a.texts||b.n-a.n).slice(0,20);
-  hbars($('#c-pl-top'),tp.map(x=>({l:x.name,v:x.texts,k:x.name,tip:`${esc(x.name)}: ${fmt(x.texts)} текстов; в стихах ${fmt(x.np)}, в прозе ${fmt(x.nr)} упоминаний<br>нажмите, чтобы открыть карточку`})),{color:'var(--s2)',labelW:120,rowH:22,fmtv:fmt,onClick:r=>pick(NP_.find(x=>x.name===r.k))});
+  hbars($('#c-pl-top'),tp.map(x=>({l:x.name,v:x.texts,k:x.name,tip:`${esc(x.name)}: ${pn(x.texts,RUF.text)}; в стихах ${fmt(x.np)}, в прозе ${pn(x.nr,RUF.mention)}<br>нажмите, чтобы открыть карточку`})),{color:'var(--s2)',labelW:120,rowH:22,fmtv:fmt,onClick:r=>pick(NP_.find(x=>x.name===r.k))});
   table($('#c-pl-top'),['Место','Текстов','В стихах','В прозе'],tp.map(x=>[x.name,x.texts,x.np,x.nr]));
   const hp=[...NP_].sort((a,b)=>b.np-a.np).slice(0,16);
-  heatTable($('#c-pl-heat'),hp.map(x=>x.name),PSH,hp.map(x=>x.per.slice(0,6)),{labelW:120,cellH:24,fmtv:v=>v?fmt(Math.round(v)):'',tipf:(i,j)=>`${esc(hp[i].name)} · ${PER[j]}: ${fmt(hp[i].per[j])} упоминаний в стихах`,onRow:i=>pick(hp[i])});
+  heatTable($('#c-pl-heat'),hp.map(x=>x.name),PSH,hp.map(x=>x.per.slice(0,6)),{labelW:120,cellH:24,fmtv:v=>v?fmt(Math.round(v)):'',tipf:(i,j)=>`${esc(hp[i].name)} · ${PER[j]}: ${pn(hp[i].per[j],['упоминание в стихах','упоминания в стихах','упоминаний в стихах'])}`,onRow:i=>pick(hp[i])});
   pick(bp[0]&&bp[0].np>=1?NP_.find(x=>x.name==='Рим')||bp[0]:NP_[0]);
 })();
 
@@ -140,14 +139,14 @@ function shelf(hostId,groups,{noun,unit,findId,extra=null}){
   const total=all.reduce((a,b)=>a+b.n,0);
   const byP=[...all].sort((a,b)=>b.np-a.np), byR=[...all].sort((a,b)=>b.nr-a.nr);
   const topN=(arr,f,n)=>arr.filter(x=>f(x)>0).slice(0,n).map(x=>`${x.w} (${f(x)})`).join(', ');
-  const fid=document.getElementById(findId); if(fid) fid.textContent=`В текстах Бродского нашлось ${fmt(all.length)} ${RU_PLURAL(all.length,'слово','слова','слов')} из этой темы, всего ${fmt(total)} ${RU_PLURAL(total,'упоминание','упоминания','упоминаний')}. В стихах чаще всего: ${topN(byP,x=>x.np,5)}. В прозе: ${topN(byR,x=>x.nr,5)}.${extra?' '+extra(all):''}`;
+  const fid=document.getElementById(findId); if(fid) fid.textContent=`В текстах Бродского нашлось ${fmt(all.length)} ${plural(all.length, ['слово', 'слова', 'слов'])} из этой темы, всего ${fmt(total)} ${plural(total, ['упоминание', 'упоминания', 'упоминаний'])}. В стихах чаще всего: ${topN(byP,x=>x.np,5)}. В прозе: ${topN(byR,x=>x.nr,5)}.${extra?' '+extra(all):''}`;
   host.innerHTML=`<div class="shelf"><div class="shelf-main"><div class="shelf-groups" id="${hostId}-g"></div></div><aside class="card shelf-card" id="${hostId}-card" aria-live="polite"></aside></div>
     <div class="panel"><div class="cap"><span class="t">Как менялись эти слова в стихах</span><span class="u">упоминаний на 10 000 слов, по группам</span></div><div class="legend" id="${hostId}-leg"></div><div class="chart" id="${hostId}-chart"></div></div>
     <div class="panel"><div class="cap"><span class="t">Редкие гости</span><span class="u">слова, которые встречаются один или два раза; наведите, чтобы увидеть строку</span></div><div class="chips" id="${hostId}-rare"></div></div>
     <p class="muted" style="font-size:13.5px">${SHELF_NOTE}</p>`;
   const card=document.getElementById(hostId+'-card');
   const show=it=>{ const sibs=G[it.gi].items.filter(x=>x.w!==it.w).slice(0,8).map(x=>({label:x.w+' · '+x.n,fn:()=>show({...x,g:it.g,gi:it.gi})}));
-    entityCard(card,{eyebrow:'Карточка слова',title:it.w,meta:it.g+' · в '+fmt(it.texts)+' '+RU_PLURAL(it.texts,'тексте','текстах','текстах'),tiles:[[fmt(it.n),RU_PLURAL(it.n,'упоминание','упоминания','упоминаний')],[fmt(it.np),'в стихах'],[fmt(it.nr),'в прозе']],per:it.per,chips:sibs,chipsTitle:'Из той же группы',ctx:it.ctx,word:it.w,color:col(it.gi)}); };
+    entityCard(card,{eyebrow:'Карточка слова',title:it.w,meta:it.g+' · в '+fmt(it.texts)+' '+plural(it.texts, ['тексте', 'текстах', 'текстах']),tiles:[[fmt(it.n),plural(it.n, ['упоминание', 'упоминания', 'упоминаний'])],[fmt(it.np),'в стихах'],[fmt(it.nr),'в прозе']],per:it.per,chips:sibs,chipsTitle:'Из той же группы',ctx:it.ctx,word:it.w,color:col(it.gi)}); };
   const gh=document.getElementById(hostId+'-g');
   G.forEach((g,gi)=>{ const mx=Math.max(...g.items.map(i=>i.n)); const div=document.createElement('div'); div.className='sh-group';
     const rates=g.per.slice(0,6).map((v,i)=>per10k(v,i));
@@ -164,7 +163,7 @@ function shelf(hostId,groups,{noun,unit,findId,extra=null}){
     const mx=niceMax(Math.max(...rowsP.map(r=>r.parts.reduce((a,b)=>a+b.v,0)),1e-9)); const sx=v=>L+(w-L-R)*v/mx; const ax=el('g',{class:'ax'},s);
     ticks(mx,4).forEach(t=>{ el('line',{x1:sx(t),x2:sx(t),y1:T,y2:h-Bm,stroke:css('--grid')},ax); txt(ax,sx(t),h-8,fmt1(t),{'text-anchor':'middle'}); });
     rowsP.forEach((r,i)=>{ const y=T+i*rowH; txt(s,L-8,y+rowH/2+2,pshort(r.p),{'text-anchor':'end',style:'fill:var(--ink)'}); let x=sx(0);
-      r.parts.forEach(pt=>{ const ww=sx(pt.v)-sx(0); if(ww<=0) return; el('rect',{x:x+1,y:y+4,width:Math.max(0,ww-2),height:rowH-10,rx:2,fill:css('--g'+(pt.gi+1)),'data-tip':`${esc(r.p)} · ${esc(pt.g)}: ${fmt1(pt.v)} на 10 000 слов (${fmt(pt.c)} упоминаний)`},s); x+=ww; });
+      r.parts.forEach(pt=>{ const ww=sx(pt.v)-sx(0); if(ww<=0) return; el('rect',{x:x+1,y:y+4,width:Math.max(0,ww-2),height:rowH-10,rx:2,fill:css('--g'+(pt.gi+1)),'data-tip':`${esc(r.p)} · ${esc(pt.g)}: ${fmt1(pt.v)} на 10 000 слов (${pn(pt.c,RUF.mention)})`},s); x+=ww; });
       const tot=r.parts.reduce((a,b)=>a+b.v,0); txt(s,sx(tot)+6,y+rowH/2+3,fmt1(tot)); });
   },document.getElementById(hostId+'-chart'));
   table(document.getElementById(hostId+'-chart'),['Период',...G.map(g=>g.g)],rowsP.map(r=>[r.p,...r.parts.map(p=>+p.v.toFixed(1))]));
@@ -179,7 +178,7 @@ shelf('sh-places',PL.generic,{findId:'f-places2'});
 shelf('sh-transport',WD.transport,{findId:'f-transport'});
 shelf('sh-food',WD.food,{findId:'f-food'});
 shelf('sh-drinks',WD.drinks,{findId:'f-drinks',extra:all=>{ const g=all.find(x=>x.w==='граппа'); const d=all.find(x=>x.w==='водка'), v=all.find(x=>x.w==='вино');
-  return (v&&d?`Вина (${v.n}) втрое чаще, чем водки (${d.n}). `:'')+(g?`Граппа встречается ${g.n} ${RU_PLURAL(g.n,'раз','раза','раз')}, оба — в «${g.ctx[0].t}».`:''); }});
+  return (v&&d?`Вина (${v.n}) втрое чаще, чем водки (${d.n}). `:'')+(g?`Граппа встречается ${g.n} ${plural(g.n, ['раз', 'раза', 'раз'])}, оба — в «${g.ctx[0].t}».`:''); }});
 [`Персонажи и места найдены автоматически. Имя — это слово с заглавной буквы внутри фразы (в стихах с заглавной в начале каждой строки начало строки не считается), у которого не меньше 70% написаний с заглавной. Лицо или место определяется по разбору pymorphy3 и по соседям: рядом с именем или инициалами — лицо, после предлога «в», «на», «из» — место. Ручных отборов нет, кроме коротких исправлений: склеены написания одного человека («Харди» и «Гарди», «Уистан» и «Оден»), убраны праздники, названия книг и сам автор, Гомер отнесён к лицам.`,
  `Связь между двумя лицами в сети — они названы в одной строфе стихотворения (стихи без пустых строк режутся по 12 строк) или в одном абзаце прозы. Круги имён найдены спектральной кластеризацией по этим связям. Расположение узлов рассчитано силовой раскладкой: рядом стоят те, кого часто называют вместе. В сеть входят 120 самых упоминаемых, остальные лица есть в поиске.`,
  `Слова для мест, транспорта, еды и напитков берутся из списков, которые я составил; в текстах считаются те слова, что там нашлись. Слова с частым другим значением в списки не вошли («виски» — височки, «паром» — пар, «угол», «камера», «рынок»). Слово считается, если его начальная форма совпадает; форма, похожая на другое слово («парка» — парк или куртка), не засчитывается, поэтому числа — нижняя оценка. Слова, которых нет в списках, не найдены; проверка на пропуски делалась по строкам, но полноты не гарантирует.`]

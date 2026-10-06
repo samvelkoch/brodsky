@@ -11,7 +11,6 @@
   for (const k in VS.rhyme_dict) for (const [w, n] of VS.rhyme_dict[k]) { add(k, w, n); add(w, k, n); }
   ADJ.forEach((m, k) => { let s = 0; m.forEach(v => { s += v; }); WT.set(k, s); });
   const nDict = Object.keys(VS.rhyme_dict).length;
-  const plr = (n, one, few, many) => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? one : (a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many); };
 
   const panel = document.createElement('div'); panel.className = 'panel'; panel.id = 'rg-panel';
   panel.innerHTML = '<div class="cap"><span class="t">Граф рифм</span><span class="u" id="rg-u"></span></div>' +
@@ -131,13 +130,13 @@
     const gE = el('g', {}, s), gN = el('g', {}, s), nb = G.N.map(() => new Set());
     const lines = G.E.map(([i, j, n]) => { nb[i].add(j); nb[j].add(i);
       return el('line', { x1: P[i][0], y1: P[i][1], x2: P[j][0], y2: P[j][1], stroke: css('--axis'), 'stroke-width': (0.7 + 2.6 * Math.sqrt(n / maxE)).toFixed(2), 'stroke-opacity': 0.8,
-        'data-tip': `${esc(G.N[i])} — ${esc(G.N[j])}: ${fmt(n)} ${plr(n, 'раз', 'раза', 'раз')}` }, gE); });
+        'data-tip': `${esc(G.N[i])} — ${esc(G.N[j])}: ${fmt(n)} ${plural(n, ['раз', 'раза', 'раз'])}` }, gE); });
     const famCol = f => f >= 0 ? css('--g' + (f + 1)) : css('--neutral-bar');
     const labelled = new Set(mode === 'map' ? G.N.map((x, i) => i).sort((a, b) => WT.get(G.N[b]) - WT.get(G.N[a])).slice(0, narrow ? 24 : 160) : G.N.map((x, i) => i));
     const groups = G.N.map((word, i) => {
       const ring = G.ring[i], deg = ADJ.get(word) ? ADJ.get(word).size : 0, tot = WT.get(word) || 0;
-      const g = el('g', { class: 'clickable', tabindex: 0, role: 'button', 'aria-label': `${word}: ${deg} ${plr(deg, 'партнёр', 'партнёра', 'партнёров')}`,
-        'data-tip': `<b>${esc(word)}</b><br>${fmt(deg)} ${plr(deg, 'слово', 'слова', 'слов')} в рифму, ${fmt(tot)} ${plr(tot, 'рифма', 'рифмы', 'рифм')}` }, gN);
+      const g = el('g', { class: 'clickable', tabindex: 0, role: 'button', 'aria-label': `${word}: ${deg} ${plural(deg, ['партнёр', 'партнёра', 'партнёров'])}`,
+        'data-tip': `<b>${esc(word)}</b><br>${fmt(deg)} ${plural(deg, ['слово', 'слова', 'слов'])} в рифму, ${fmt(tot)} ${plural(tot, ['рифма', 'рифмы', 'рифм'])}` }, gN);
       const r = ring === 0 ? 10 : mode === 'map' ? 3 + 7 * Math.sqrt(tot / maxW) : ring === 1 ? 6 : 4;
       const fill = ring === 0 ? css('--mark') : mode === 'map' ? famCol(fam[i]) : ring === 1 ? css('--s1') : css('--neutral-bar');
       el('circle', { cx: P[i][0], cy: P[i][1], r: r.toFixed(1), fill, stroke: css('--surface'), 'stroke-width': 1.5 }, g);
@@ -160,14 +159,14 @@
     const nE = G.E.length, u = document.querySelector('#rg-u'), lg = document.querySelector('#rg-legend'), note = document.querySelector('#rg-note');
     if (mode === 'ego') {
       const deg = ADJ.get(center) ? ADJ.get(center).size : 0;
-      u.textContent = `«${center}»: ${fmt(deg)} ${plr(deg, 'слово', 'слова', 'слов')} в рифму`;
+      u.textContent = `«${center}»: ${fmt(deg)} ${plural(deg, ['слово', 'слова', 'слов'])} в рифму`;
       lg.innerHTML = `<span><i style="background:${css('--mark')}"></i>слово в центре</span><span><i style="background:${css('--s1')}"></i>рифмуется с ним</span><span><i style="background:${css('--neutral-bar')}"></i>рифмы его рифм</span>`;
       note.textContent = 'Линия — пара рифм в стихах Бродского: чем толще, тем чаще. Нажмите на слово, чтобы поставить его в центр; словарь выше откроет его рифмы.';
     } else {
-      u.textContent = `${fmt(G.N.length)} самых рифмуемых слов, ${fmt(nE)} ${plr(nE, 'пара', 'пары', 'пар')}`;
+      u.textContent = `${fmt(G.N.length)} ${plural(G.N.length, ['самое рифмуемое слово', 'самых рифмуемых слова', 'самых рифмуемых слов'])}, ${fmt(nE)} ${plural(nE, ['пара', 'пары', 'пар'])}`;
       const fams = []; fam.forEach((f, i) => { if (f >= 0) (fams[f] = fams[f] || []).push(i); });
       lg.innerHTML = fams.map((ids, f) => ids ? `<span><i style="background:${famCol(f)}"></i>${ids.sort((a, b) => WT.get(G.N[b]) - WT.get(G.N[a])).slice(0, 3).map(i => esc(G.N[i])).join(', ')}</span>` : '').join('');
-      note.textContent = `Цвет — «семья»: слова, которые рифмуются в основном друг с другом. Размер точки — сколько раз слово стоит в рифме. Данные — словарь рифм: ${nDict >= VS.rhyme_dict_size ? 'полный, ' + fmt(nDict) + ' ' + plr(nDict, 'слово', 'слова', 'слов') + ' с рифмой' : fmt(nDict) + ' самых рифмуемых слов из ' + fmt(VS.rhyme_dict_size)}, и их пары. Нажмите на слово, чтобы увидеть его окружение.`;
+      note.textContent = `Цвет — «семья»: слова, которые рифмуются в основном друг с другом. Размер точки — сколько раз слово стоит в рифме. Данные — словарь рифм: ${nDict >= VS.rhyme_dict_size ? 'полный, ' + fmt(nDict) + ' ' + plural(nDict, ['слово', 'слова', 'слов']) + ' с рифмой' : fmt(nDict) + ' ' + plural(nDict, ['самое рифмуемое слово', 'самых рифмуемых слова', 'самых рифмуемых слов']) + ' из ' + fmt(VS.rhyme_dict_size)}, и их пары. Нажмите на слово, чтобы увидеть его окружение.`;
     }
   }
   function setMode() { seg(document.querySelector('#rg-mode'), [['ego', 'Вокруг слова'], ['map', 'Карта рифм']], mode, v => { mode = v; draw(); }); }
