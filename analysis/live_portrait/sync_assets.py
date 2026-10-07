@@ -60,7 +60,7 @@ def cmd_final(_):
     for n in NEED:
         shutil.copyfile(LP_FINAL / n, FINAL / n)
     print("final/ обновлён:", {n: (FINAL / n).stat().st_size for n in NEED})
-    print("mp4", mp4["width"], "x", mp4["height"], mp4["duration"], "с; webm", webm["width"], "x", webm["height"], webm["duration"], "с")
+    print("mp4", mp4["width"], "x", mp4["height"], mp4.get("duration", "?"), "с; webm", webm["width"], "x", webm["height"], webm.get("duration", "?"), "с")
 
 
 def cmd_deploy(a):

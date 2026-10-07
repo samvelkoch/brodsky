@@ -2,7 +2,7 @@
    В покое на листе лежит постер (картинка). Ролик не зациклен: он играет один раз, когда портрет впервые
    попал в зону видимости, и потом снова — при наведении мыши, при тапе и при прокрутке, пока портрет на экране.
    Ролик, который уже играет, не перезапускается. После конца прокрутка может запустить его снова только
-   через GAP мс. Первый и последний кадры ролика совпадают с постером, поэтому на последнем кадре он и остаётся.
+   через GAP мс. Первый кадр ролика — постер, последний почти совпадает с ним (отличается шумом сжатия), поэтому по концу ролик за ~0,2 с растворяется над постером.
    При prefers-reduced-motion ролик не создаётся (он лежит в <template>) и не загружается. */
 (function(){
   var fig=document.getElementById('lp'), tpl=document.getElementById('lp-video');
@@ -29,11 +29,13 @@
   function stop(){                         // портрет ушёл с экрана: назад на первый кадр, он же постер
     if(!playing&&!v.currentTime) return;
     playing=false; endedAt=now();
+    v.classList.remove('on');
     try{ v.pause(); v.currentTime=0; }catch(e){}
   }
 
-  v.addEventListener('loadeddata',function(){ v.classList.add('on'); });
-  v.addEventListener('ended',function(){ playing=false; endedAt=now(); });
+  // видео показывается над постером только пока играет; по окончании плавно уходит в прозрачность над постером
+  v.addEventListener('playing',function(){ v.classList.add('on'); });
+  v.addEventListener('ended',function(){ playing=false; endedAt=now(); v.classList.remove('on'); });
   v.addEventListener('pause',function(){ if(!v.ended) playing=false; });
 
   // следить за портретом начинаем, когда страница дособрана (тексты первого экрана уже вставлены и не сдвинут портрет вниз);
