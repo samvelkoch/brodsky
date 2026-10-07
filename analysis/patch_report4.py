@@ -142,7 +142,7 @@ HERO = '''<header class="hero" id="top">
     <div class="hero-grid">
       <div class="hero-text">
         <div class="eyebrow">Стихи и проза, 1957–1996 · частотный и стилевой анализ</div>
-        <h1><span class="typed">Бродский</span><span class="hand">на просвет</span></h1>
+        <h1><span class="typed">Бродский</span><span class="hand">на<i>_</i>просвет</span></h1>
         <p class="lede" id="lede"></p>
         <div class="tools">
           <label for="hl-input">Подсветить слово на страницах</label>
