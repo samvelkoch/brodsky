@@ -34,11 +34,13 @@ LAT_S, LAT_N, LON_W, LON_E = 45.4212, 45.4505, 12.312, 12.358      # видим�
 SCALE = 1.6                                                       # единиц SVG на метр
 
 # ------------------------------------------------------------------ точки (источники см. POINTS_SRC)
-POINTS = [
-    dict(n=1, name="Пансион «Accademia»", lat=45.4319711, lon=12.3265363, osm="node/12778940301"),
-    dict(n=2, name="Могила Бродского", lat=45.4475385, lon=12.3488188, osm="node/4824705622"),
-    dict(n=3, name="Мемориальная доска на Дзаттере", lat=45.4288382, lon=12.3291516, osm="node/5498137523"),
-]
+def _load_points():
+    """Точки — из places.json (11 мест из статьи 1600.venezia.it; координаты — OpenStreetMap)."""
+    d = json.loads((HERE / "places.json").read_text(encoding="utf-8"))
+    return [dict(n=p["n"], name=p["name_ru"], lat=p["lat"], lon=p["lon"], osm=p["osm"]) for p in d["places"]]
+
+
+POINTS = _load_points()
 
 # ------------------------------------------------------------------ Overpass: один запрос на основу, кэш на диск
 BASE_QL = CACHE / "q_base.ql"

@@ -1,0 +1,276 @@
+{
+ "meta": {
+  "source": {
+   "url": "https://1600.venezia.it/ru/articolo/iosif-aleksandrovich-brodsky-zdes-nego-byli-lyubimye-mesta-svoi-marshruty",
+   "name": "1600.venezia.it, «Iosif Aleksandrovich Brodsky — Здесь у него были любимые места и свои маршруты»",
+   "date": "2021-06-15"
+  },
+  "coords": "OpenStreetMap (ODbL), © участники OpenStreetMap",
+  "map_frame": {
+   "lat": [
+    45.4212,
+    45.4505
+   ],
+   "lon": [
+    12.312,
+    12.358
+   ]
+  },
+  "photos": "Wikimedia Commons; дуотон, кроп 4:3, 640x480"
+ },
+ "places": [
+  {
+   "n": 1,
+   "name_ru": "Пансион «Accademia»",
+   "name_it": "Pensione Accademia",
+   "lat": 45.4319711,
+   "lon": 12.3265363,
+   "osm": "node/12778940301",
+   "approx": null,
+   "popup_line": "Первое венецианское пристанище, 1973 год; пансион в старой вилле, где когда-то было русское посольство.",
+   "map": {
+    "x_pct": 31.64,
+    "y_pct": 63.173
+   },
+   "photo": {
+    "key": "1a",
+    "file": "photos/1.webp",
+    "note": "Palazzo Maravegia (Villa Maravege) на Fondamenta Bollani; что пансион стоит именно в этом здании, не проверено (в статье — «старая вилла»)",
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Palazzo_Maravegia_(Venice).jpg"
+   }
+  },
+  {
+   "n": 2,
+   "name_ru": "Antica Locanda Montin",
+   "name_it": "Antica Locanda Montin",
+   "lat": 45.4315809,
+   "lon": 12.3248388,
+   "osm": "node/3184336187",
+   "approx": null,
+   "popup_line": "Старый ресторан в Дорсодуро; на стене висит фото с автографом Бродского.",
+   "map": {
+    "x_pct": 27.935,
+    "y_pct": 64.629
+   },
+   "photo": {
+    "key": "2c",
+    "file": "photos/2.webp",
+    "note": "Мост Сан-Тровазо рядом; сам ресторан не снят",
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Ponte_de_San_Trovaso_(Venice).jpg"
+   }
+  },
+  {
+   "n": 3,
+   "name_ru": "Кафе-мороженое Nico",
+   "name_it": "Gelateria Nico",
+   "lat": 45.4296093,
+   "lon": 12.3261443,
+   "osm": "node/3202404674",
+   "approx": null,
+   "popup_line": "Здесь он встречался с другом, американским художником Робертом Морганом.",
+   "map": {
+    "x_pct": 30.718,
+    "y_pct": 71.297
+   },
+   "photo": {
+    "key": "3c",
+    "file": "photos/3.webp",
+    "note": "Zattere al Ponte Lungo с воды; кафе в кадре нет",
+    "author": "Wolfgang Moroder",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Zattere_al_Ponte_Lungo_vista_dal_Canale_Giudecca.jpg"
+   }
+  },
+  {
+   "n": 4,
+   "name_ru": "Набережная Неисцелимых",
+   "name_it": "Fondamenta degli Incurabili (Zattere ai Incurabili)",
+   "lat": 45.4288382,
+   "lon": 12.3291516,
+   "osm": "node/5498137523",
+   "approx": null,
+   "popup_line": "Название набережной стало названием эссе; в 2009 году здесь открыта памятная доска.",
+   "map": {
+    "x_pct": 37.311,
+    "y_pct": 73.903
+   },
+   "photo": {
+    "key": "4c",
+    "file": "photos/4.webp",
+    "note": "Памятная доска Бродскому (оговорка: итальянское право, свободы панорамы нет, скульптурная работа 2009 г.)",
+    "author": "Aisano",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Iosif_Brodskij,_tabulo_en_Venecio.jpeg"
+   }
+  },
+  {
+   "n": 5,
+   "name_ru": "Палаццо Марчелло",
+   "name_it": "Palazzo Marcello (Rio de la Verona)",
+   "lat": 45.4344894,
+   "lon": 12.3336288,
+   "osm": "way/180931412",
+   "approx": "приблизительно: дом на Рио де Верона в OSM не определён, точка стоит на набережной Fondamenta de la Verona",
+   "popup_line": "Дом графа Джироламо Марчелло: здесь Бродский жил в последние годы и написал «С натуры».",
+   "map": {
+    "x_pct": 46.999,
+    "y_pct": 54.666
+   },
+   "photo": {
+    "key": "5a",
+    "file": "photos/5.webp",
+    "note": "Рио де Верона (Rio Menuo o de la Verona)",
+    "author": "Andrzej Otrębski",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Venezia_Rio_de_la_Verona.jpg"
+   }
+  },
+  {
+   "n": 6,
+   "name_ru": "Harry's Bar",
+   "name_it": "Harry's Bar",
+   "lat": 45.432405,
+   "lon": 12.3372585,
+   "osm": "node/2249980982",
+   "approx": null,
+   "popup_line": "Здесь он встретил Рождество 1977 года вместе с Сюзан Зонтаг.",
+   "map": {
+    "x_pct": 54.897,
+    "y_pct": 61.774
+   },
+   "photo": {
+    "key": "6b",
+    "file": "photos/6.webp",
+    "note": "Окно с надписью Harry's Bar",
+    "author": "Clayton Parker from Chatillon sur Indre, France",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Harrysbar.jpg"
+   }
+  },
+  {
+   "n": 7,
+   "name_ru": "Кафе Florian",
+   "name_it": "Caffè Florian",
+   "lat": 45.4336006,
+   "lon": 12.3382833,
+   "osm": "node/12453807859",
+   "approx": null,
+   "popup_line": "Старейшее кафе Италии, с 1720 года; его окно открывает сцену в тумане в «Набережной».",
+   "map": {
+    "x_pct": 57.175,
+    "y_pct": 57.674
+   },
+   "photo": {
+    "key": "7c",
+    "file": "photos/7.webp",
+    "note": "Интерьер с зеркалами",
+    "author": "Jorge Franganillo",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Venezia_-_Caff%C3%A8_Florian_-_interior.jpg"
+   }
+  },
+  {
+   "n": 8,
+   "name_ru": "Траттория Alla Rivetta",
+   "name_it": "Trattoria alla Rivetta",
+   "lat": 45.4349488,
+   "lon": 12.3420942,
+   "osm": "node/4427354191",
+   "approx": null,
+   "popup_line": "Любимое место обеда недалеко от Сан-Марко: здесь подают чикетти.",
+   "map": {
+    "x_pct": 65.437,
+    "y_pct": 53.075
+   },
+   "photo": {
+    "key": "8c",
+    "file": "photos/8.webp",
+    "note": "Мост Дьявола на рио ди Сан-Проволо; сама траттория не снята",
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Ponte_del_Diavolo_-_Venezia.jpg"
+   }
+  },
+  {
+   "n": 9,
+   "name_ru": "Арсенал",
+   "name_it": "Arsenale di Venezia",
+   "lat": 45.4354304,
+   "lon": 12.3533364,
+   "osm": "node/2189685759",
+   "approx": "приблизительно: в статье речь о северной стене Арсенала, точка стоит на самом Арсенале",
+   "popup_line": "Он гулял вдоль северной стены Арсенала, откуда виден Сан-Микеле.",
+   "map": {
+    "x_pct": 89.877,
+    "y_pct": 51.389
+   },
+   "photo": {
+    "key": "9a",
+    "file": "photos/9.webp",
+    "note": "Fondamenta dell'Arsenale, стена Арсенала",
+    "author": "Dimitris Kamaras from Athens, Greece",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Fondamenta_dell%27Arsenale,_Venice_(37742620702).jpg"
+   }
+  },
+  {
+   "n": 10,
+   "name_ru": "Площадь Санти-Джованни-э-Паоло",
+   "name_it": "Campo Santi Giovanni e Paolo",
+   "lat": 45.4392211,
+   "lon": 12.3416758,
+   "osm": "relation/7932576",
+   "approx": "приблизительно: центр площади; в статье она названа концом прогулки вдоль больничной стены",
+   "popup_line": "Конец его прогулки вдоль длинной стены госпиталя.",
+   "map": {
+    "x_pct": 64.516,
+    "y_pct": 38.475
+   },
+   "photo": {
+    "key": "10c",
+    "file": "photos/10.webp",
+    "note": "Базилика Санти-Джованни-э-Паоло",
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Exterior_of_Santi_Giovanni_e_Paolo_(Venice)_from_Campo_San_Zanipolo.jpg"
+   }
+  },
+  {
+   "n": 11,
+   "name_ru": "Могила на Сан-Микеле",
+   "name_it": "Cimitero di San Michele (tomba di Brodskij)",
+   "lat": 45.4475385,
+   "lon": 12.3488188,
+   "osm": "node/4824705622",
+   "approx": null,
+   "popup_line": "Перезахоронен в 1997 году в протестантской части кладбища.",
+   "map": {
+    "x_pct": 80.101,
+    "y_pct": 10.174
+   },
+   "photo": {
+    "key": "11a",
+    "file": "photos/11.webp",
+    "note": "Могила Бродского на Сан-Микеле",
+    "author": "SchiDD",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Venedig-San-Michele-Grab-Brodsky.jpg"
+   }
+  }
+ ]
+}
