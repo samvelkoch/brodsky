@@ -12,6 +12,8 @@ from pathlib import Path
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE / "venice_map"))
 from block import venice_map_block   # карта Венеции: venice_map/map-fragment.svg + points.json
+sys.path.insert(0, str(HERE / "live_portrait"))
+import portrait_block as lp_block              # живой портрет и карточка биографии: live_portrait/ (без final/ сборка падает)
 t = (HERE / "report3.template.html").read_text(encoding="utf-8")
 
 # ---------------------------------------------------------------- куски исходника
@@ -41,6 +43,11 @@ sections["temy"] = sections["temy"].replace("синее — реже", "зелё
 assert sections["venecia"].count('<p class="finding" id="f-ven"></p>') == 1
 sections["venecia"] = sections["venecia"].replace(
     '<p class="finding" id="f-ven"></p>', '<p class="finding" id="f-ven"></p>\n  ' + venice_map_block(), 1)
+
+# краткая биография карточкой в начале «Хронологии» (I.3), перед абзацем про годы
+assert sections["hronologia"].count('<h2>Хронология</h2>\n  <p id="t-years"></p>') == 1
+sections["hronologia"] = sections["hronologia"].replace(
+    '<h2>Хронология</h2>\n  <p id="t-years"></p>', '<h2>Хронология</h2>\n  ' + lp_block.bio_card() + '\n  <p id="t-years"></p>', 1)
 
 # новая карта словаря: период, «Играть», поиск, группы
 sections["karta"] = '''<section id="karta">
@@ -132,20 +139,30 @@ tabs = "".join(
 
 HERO = '''<header class="hero" id="top">
   <div class="inner">
-    <div class="eyebrow">Стихи и проза, 1957–1996 · частотный и стилевой анализ</div>
-    <h1><span class="typed">Бродский</span><span class="hand">на просвет</span></h1>
-    <p class="lede" id="lede"></p>
-    <div class="tools">
-      <label for="hl-input">Подсветить слово на страницах</label>
-      <input type="search" id="hl-input" placeholder="например, стекло" autocomplete="off" spellcheck="false">
-      <div class="chips" id="hl-chips"></div>
-      <span class="count" id="hl-count" aria-live="polite"></span>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow">Стихи и проза, 1957–1996 · частотный и стилевой анализ</div>
+        <h1><span class="typed">Бродский</span><span class="hand">на просвет</span></h1>
+        <p class="lede" id="lede"></p>
+        <div class="tools">
+          <label for="hl-input">Подсветить слово на страницах</label>
+          <input type="search" id="hl-input" placeholder="например, стекло" autocomplete="off" spellcheck="false">
+          <div class="chips" id="hl-chips"></div>
+          <span class="count" id="hl-count" aria-live="polite"></span>
+        </div>
+      </div>
+      {{PORTRAIT}}
     </div>
     <div class="pages" id="pages"><canvas id="pages-cv" role="img" aria-label="Все стихотворения Бродского в хронологическом порядке: каждое изображено страницей, каждая строка — штрихом длиной в число слогов"></canvas></div>
     <p class="pages-note">Каждый лист — стихотворение, каждый штрих — строка: чем длиннее штрих, тем больше в строке слогов. Пропуск между штрихами — граница строфы, длинные стихотворения сжаты по высоте. Листы идут по времени, слева — годы ряда. Нажмите на лист, чтобы открыть его карточку в атласе: там строение стихотворения крупно и ссылка на текст.</p>
     <div class="figures" id="figures"></div>
   </div>
 </header>'''
+
+HERO = HERO.replace("{{PORTRAIT}}", lp_block.portrait_block(), 1)
+# скрипт портрета стоит прямо за шапкой и отдельно от остальных: ролик начинает грузиться и играть, не дожидаясь тяжёлых
+# скриптов страницы, а ошибка в нём не заденет остальные
+HERO += "\n<script>\n" + (HERE / "live_portrait" / "portrait.js").read_text(encoding="utf-8") + "</script>"
 
 rail = []
 parts_html = []

@@ -37,6 +37,7 @@
 | 12. Персонажи, места, транспорт, еда, напитки | `analysis/world.py` | `world.json` |
 | 13. Отчёт, версия 2 «на просвет» | `analysis/patch_report4.py` (+ `report4.head.html`, `report4.chrome.js`, `report4.wmap.js`, `report4.world.js`, `report4.rgraph.js` — граф рифм) + `build_report.py out.html report4.template.html` | самодостаточный HTML |
 | 14. Карта Венеции для раздела «Венеция» | `analysis/venice_map/build_map.py` (OpenStreetMap, ODbL; нужны `shapely`, `pyproj`, `numpy`) | `map-fragment.svg`, `points.json` лежат в репозитории; `block.py` вставляет карту в отчёт при `patch_report4.py` |
+| 15. Живой портрет на первом экране и биография в «Хронологии» | `analysis/live_portrait/`: `portrait_block.py` (разметка), `portrait.js` (поведение), `sync_assets.py` (`bio` — подпись и биография из naprosvet-book; `final` — ролик из naprosvet/live/lp/final; `deploy` — ролик рядом со страницами); после `patch_report4.py` и `build_report.py` — `analysis/wrap_pages.py out2.html` (обёртки docs и сайта) | `portrait.mp4`, `portrait.webm` рядом с `docs/prosvet.html` и `brodsky/index.html`; постер встроен в страницу. Без `live_portrait/final/` `patch_report4.py` падает |
 
 ## Запуск
 
