@@ -377,14 +377,17 @@ blockquote b{font-style:normal; color:var(--mark)}
 .vm-pop b{display:block; margin:7px 0 2px; font:700 clamp(13px,1.5cqw,15px)/1.25 var(--f-body)}
 .vm-pop i{display:block; font:400 clamp(11.5px,1.35cqw,13px)/1.4 var(--f-body); font-style:normal}
 .vm-pop em{display:block; margin-top:5px; font:400 10px/1.35 var(--f-mono); font-style:normal; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
-/* фото-дуотон: серый webp служит маской; тени — --ph-d, света — --ph-l (в тёмной теме цвета меняются местами, иначе кадр читался бы как негатив) */
-.ph{--ph-d:var(--ink); --ph-l:var(--page); position:relative; display:block; aspect-ratio:4 / 3; width:100%; background:var(--ph-d); overflow:hidden}
-:root[data-theme="dark"] .ph{--ph-d:var(--page); --ph-l:var(--ink)}
-@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .ph{--ph-d:var(--page); --ph-l:var(--ink)} }
-.ph::after{content:""; position:absolute; inset:0; background:var(--ph-l);
-  -webkit-mask-image:var(--src); mask-image:var(--src); -webkit-mask-size:cover; mask-size:cover; -webkit-mask-position:center; mask-position:center;
-  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-mode:luminance; mask-mode:luminance}
-@supports not (mask-mode:luminance){ .ph{background:var(--src) center / cover no-repeat} .ph::after{display:none} }
+/* фото-дуотон запечён в два webp заранее (светлая и тёмная тема, venice_map/bake_duotone.py): обычные <img>, без CSS-масок.
+   Тени — --ink, света — --page; в тёмной теме наоборот. Какая картинка видна, решает тема: data-theme и prefers-color-scheme */
+.ph{position:relative; display:block; aspect-ratio:4 / 3; width:100%; overflow:hidden}
+.ph img{display:block; width:100%; height:auto; aspect-ratio:4 / 3; object-fit:cover; object-position:center}
+.ph .ph-dk{display:none}
+:root[data-theme="dark"] .ph .ph-lt{display:none}
+:root[data-theme="dark"] .ph .ph-dk{display:block}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .ph .ph-lt{display:none}
+  :root:not([data-theme="light"]) .ph .ph-dk{display:block}
+}
 .vm-sc{position:absolute; transform:translateY(-50%); font:clamp(9.5px,1.3cqw,12px)/1 var(--f-mono); color:var(--muted); white-space:nowrap}
 .vm-leg{list-style:none; margin:6px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px 30px}
 .vm-leg li{display:grid; grid-template-columns:auto minmax(0,1fr); gap:0 12px; align-items:start; padding-top:14px; border-top:1px dashed var(--axis)}

@@ -3,8 +3,8 @@
 Читает готовые map-fragment.svg и points.json (их пишет build_map.py), places.json и photos/N.webp (11 мест из статьи
 1600.venezia.it, выбранные фото с Wikimedia Commons), только стандартная библиотека.
 Рисунок встраивается инлайн, а не через <img>: так он видит переменные цвета страницы и переключатель темы.
-Фото — серые webp (дуотон), в страницу встроены как data-URI и окрашиваются стилем из --ink и --page (в тёмной теме
-цвета меняются местами). Стили лежат в report4.head.html (правила .vm* и .ph), поведение всплывашки — places.js.
+Фото — готовый дуотон (photos/duo/N-light.webp и N-dark.webp, их печёт bake_duotone.py из --ink и --page; в тёмной теме
+цвета меняются местами), в страницу встроены как data-URI в двух обычных <img>, тему выбирает CSS. Стили лежат в report4.head.html (правила .vm* и .ph), поведение всплывашки — places.js.
 
 Источник сведений о местах один: статья «Iosif Aleksandrovich Brodsky — Здесь у него были любимые места и свои маршруты»,
 1600.venezia.it, 15.06.2021. Координаты — OpenStreetMap (osm у каждого места в places.json); у мест, помеченных
@@ -26,6 +26,12 @@ esc = html.escape
 
 def _photo_uri(rel):
     return "data:image/webp;base64," + base64.b64encode((HERE / rel).read_bytes()).decode()
+
+
+def _photo_imgs(n):
+    """Две картинки одного кадра: светлая и тёмная тема (какую показать — решает CSS)."""
+    return "".join(f'<img class="ph-{cls}" src="{_photo_uri(f"photos/duo/{n}-{theme}.webp")}" alt="" width="400" height="300" decoding="async">'
+                   for cls, theme in (("lt", "light"), ("dk", "dark")))
 
 
 def venice_map_block():
@@ -53,7 +59,7 @@ def venice_map_block():
         ph = p["photo"]
         credit = f'Фото: {ph["author"]}, {ph["license"]}'
         pts.append(f'<span class="vm-pt" style="left:{left};top:{top}"><button type="button" class="vm-mk" aria-describedby="vmp{n}" aria-label="{n}. {esc(p["name_ru"])}">{n}</button>'
-                   f'<span class="vm-pop" id="vmp{n}" role="tooltip"><span class="ph" style="--src:url({_photo_uri(ph["file"])})"></span>'
+                   f'<span class="vm-pop" id="vmp{n}" role="tooltip"><span class="ph">{_photo_imgs(n)}</span>'
                    f'<b>{esc(p["name_ru"])}</b><i>{esc(p["popup_line"])}</i><em>{esc(credit)}</em></span></span>')
         ap = f' <span class="ap">(приблизительно)</span>' if p["approx"] else ""
         lic = f'<a href="{esc(ph["license_url"])}">{esc(ph["license"])}</a>' if ph["license_url"] else esc(ph["license"])
