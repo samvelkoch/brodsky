@@ -1,0 +1,181 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-07T07:30:32Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 473696603,
+  "lat": 45.4468066,
+  "lon": 12.3483614,
+  "tags": {
+    "cemetery": "grave",
+    "historic": "tomb",
+    "name": "Igor Stravinsky",
+    "tomb": "tumulus"
+  }
+},
+{
+  "type": "node",
+  "id": 473696605,
+  "lat": 45.4475513,
+  "lon": 12.3486285,
+  "tags": {
+    "cemetery": "grave",
+    "historic": "tomb",
+    "name": "Ezra Pound",
+    "tomb": "mausoleum"
+  }
+},
+{
+  "type": "node",
+  "id": 4824705622,
+  "lat": 45.4475385,
+  "lon": 12.3488188,
+  "tags": {
+    "cemetery": "grave",
+    "historic": "tomb",
+    "name": "Joseph Brodsky",
+    "name:en": "Joseph Brodskyʼs grave",
+    "name:it": "Joseph Brodsky",
+    "name:ru": "Иосиф Бродский",
+    "tomb": "tumulus"
+  }
+},
+{
+  "type": "node",
+  "id": 9630400800,
+  "lat": 45.4467972,
+  "lon": 12.3483508,
+  "tags": {
+    "cemetery": "grave",
+    "historic": "tomb",
+    "name": "Vera de Bosset (Stravinsky)",
+    "tomb": "tumulus"
+  }
+},
+{
+  "type": "way",
+  "id": 216882411,
+  "center": {
+    "lat": 45.4437961,
+    "lon": 12.3281410
+  },
+  "tags": {
+    "addr:place": "Cannaregio",
+    "addr:postcode": "30121",
+    "name": "Cannaregio",
+    "note": "Sestiere di Venezia",
+    "place": "neighbourhood",
+    "wikidata": "Q52423",
+    "wikimedia_commons": "Category:Cannaregio (Venice)",
+    "wikipedia": "it:Cannaregio"
+  }
+},
+{
+  "type": "way",
+  "id": 216882423,
+  "center": {
+    "lat": 45.4346215,
+    "lon": 12.3503901
+  },
+  "tags": {
+    "name": "Castello",
+    "note": "Sestiere di Venezia",
+    "place": "neighbourhood",
+    "wikidata": "Q52425",
+    "wikimedia_commons": "Category:Castello (Venice)",
+    "wikipedia": "it:Castello (sestiere di Venezia)"
+  }
+},
+{
+  "type": "way",
+  "id": 216882424,
+  "center": {
+    "lat": 45.4331071,
+    "lon": 12.3232984
+  },
+  "tags": {
+    "addr:place": "Dorsoduro",
+    "addr:postcode": "30123",
+    "name": "Dorsoduro",
+    "note": "Sestiere di Venezia",
+    "place": "neighbourhood",
+    "wikidata": "Q52422",
+    "wikimedia_commons": "Category:Dorsoduro (Venice)",
+    "wikipedia": "it:Dorsoduro"
+  }
+},
+{
+  "type": "way",
+  "id": 216882425,
+  "center": {
+    "lat": 45.4258633,
+    "lon": 12.3294135
+  },
+  "tags": {
+    "addr:place": "Giudecca",
+    "addr:postcode": "30133",
+    "name": "Giudecca",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "way",
+  "id": 216882429,
+  "center": {
+    "lat": 45.4349091,
+    "lon": 12.3341386
+  },
+  "tags": {
+    "name": "San Marco",
+    "note": "Sestiere di Venezia",
+    "place": "neighbourhood",
+    "postal_code": "30124",
+    "wikidata": "Q52427",
+    "wikimedia_commons": "Category:San Marco (Venice)",
+    "wikipedia": "it:San Marco (sestiere di Venezia)"
+  }
+},
+{
+  "type": "way",
+  "id": 216882430,
+  "center": {
+    "lat": 45.4379743,
+    "lon": 12.3295258
+  },
+  "tags": {
+    "name": "San Polo",
+    "note": "Sestiere di Venezia",
+    "place": "neighbourhood",
+    "postal_code": "30125",
+    "wikidata": "Q52429",
+    "wikimedia_commons": "Category:San Polo (Venice)",
+    "wikipedia": "it:San Polo (sestiere di Venezia)"
+  }
+},
+{
+  "type": "way",
+  "id": 216882432,
+  "center": {
+    "lat": 45.4385958,
+    "lon": 12.3238031
+  },
+  "tags": {
+    "loc_name": "Sestier de S. Crose",
+    "name": "Santa Croce",
+    "note": "Sestiere di Venezia",
+    "place": "neighbourhood",
+    "postal_code": "30135",
+    "wikidata": "Q52428",
+    "wikimedia_commons": "Category:Santa Croce (Venice)",
+    "wikipedia": "it:Santa Croce (sestiere di Venezia)"
+  }
+}
+
+  ]
+}

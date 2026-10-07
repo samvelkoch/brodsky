@@ -1,0 +1,1262 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-07T07:24:28Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 695741733,
+  "lat": 45.4317404,
+  "lon": 12.3285289,
+  "tags": {
+    "amenity": "ferry_terminal",
+    "cargo": "passengers",
+    "ferry": "yes",
+    "name": "Accademia \"A\"",
+    "public_transport": "station",
+    "wheelchair": "yes",
+    "wikidata": "Q63380876",
+    "wikimedia_commons": "Category:Accademia stop on Canal Grande"
+  }
+},
+{
+  "type": "node",
+  "id": 895805118,
+  "lat": 45.4313662,
+  "lon": 12.3280919,
+  "tags": {
+    "addr:city": "Venezia",
+    "addr:country": "IT",
+    "addr:housenumber": "1050",
+    "addr:postcode": "30123",
+    "addr:street": "Campo de la Carità",
+    "email": "infogallerie.venezia@beniculturali.it",
+    "kids_area": "no",
+    "museum": "art",
+    "museum_type": "national",
+    "name": "Gallerie dell'Accademia",
+    "name:en": "Accademia Gallery",
+    "name:es": "Galería de la Academia",
+    "name:it": "Gallerie dell'Accademia",
+    "name:ru": "Галерея Академии",
+    "name:zh": "威尼斯美术学院",
+    "opening_hours": "Tu-Su 08:15-19:15; Mo 08:15-14:00",
+    "operator": "Stato Italiano",
+    "phone": "+39 041 522 2247",
+    "start_date": "1817",
+    "toilets": "yes",
+    "toilets:access": "customers",
+    "tourism": "museum",
+    "website": "https://www.gallerieaccademia.it/en",
+    "wheelchair": "yes",
+    "wikidata": "Q338330",
+    "wikimedia_commons": "Category:Gallerie dell'Accademia (Venice)",
+    "wikipedia": "it:Gallerie dell'Accademia"
+  }
+},
+{
+  "type": "node",
+  "id": 3645651838,
+  "lat": 45.4335077,
+  "lon": 12.3370122,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Guglielmo Pepe Cesare Rossarol Ernico Cosenz Carlo Mazzacapo Girolamo Villoa"
+  }
+},
+{
+  "type": "node",
+  "id": 4212293003,
+  "lat": 45.4316374,
+  "lon": 12.3287135,
+  "tags": {
+    "amenity": "ferry_terminal",
+    "cargo": "passengers",
+    "ferry": "yes",
+    "name": "Accademia \"B\"",
+    "public_transport": "station",
+    "wheelchair": "yes",
+    "wikidata": "Q113780616"
+  }
+},
+{
+  "type": "node",
+  "id": 4308455338,
+  "lat": 45.4340072,
+  "lon": 12.3391357,
+  "tags": {
+    "historic": "memorial",
+    "inscription": "Galileo Galilei con il suo cannocchiale da qui il 21 agosto 1609 allargava gli orizzonti dell'uomo nel quarto centenario",
+    "material": "stone",
+    "memorial": "plaque",
+    "name": "Targa commemorativa del telescopio di Galileo",
+    "name:en": "Commemorative plaque of Galileo's telescope",
+    "wikidata": "Q24176314",
+    "wikimedia_commons": "File:Campanile di San Marco - commemorative plaque of Galileo's telescope.jpg",
+    "wikipedia": "it:Cannocchiali di Galileo"
+  }
+},
+{
+  "type": "node",
+  "id": 4347719889,
+  "lat": 45.4350981,
+  "lon": 12.3338383,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "plaque"
+  }
+},
+{
+  "type": "node",
+  "id": 4347719891,
+  "lat": 45.4352010,
+  "lon": 12.3337782,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "plaque"
+  }
+},
+{
+  "type": "node",
+  "id": 4370761454,
+  "lat": 45.4372766,
+  "lon": 12.3355222,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "bust",
+    "name": "Giuseppe Mazzini",
+    "subject": "Giuseppe Mazzini",
+    "subject:wikidata": "Q187336",
+    "subject:wikipedia": "it:Giuseppe Mazzini",
+    "support": "wall",
+    "wikimedia_commons": "File:Monument à Giuseppe Mazzini (Venise) en décembre 2022.JPG"
+  }
+},
+{
+  "type": "node",
+  "id": 4493372908,
+  "lat": 45.4348322,
+  "lon": 12.3388233,
+  "tags": {
+    "historic": "memorial",
+    "inscription": "ADDI XV GIUGNO MCCX",
+    "layer": "1",
+    "material": "stone",
+    "memorial": "stele"
+  }
+},
+{
+  "type": "node",
+  "id": 4596341018,
+  "lat": 45.4345952,
+  "lon": 12.3364398,
+  "tags": {
+    "historic": "memorial",
+    "material": "stone",
+    "memorial": "plaque",
+    "name": "Antonio Canova"
+  }
+},
+{
+  "type": "node",
+  "id": 5365628149,
+  "lat": 45.4381280,
+  "lon": 12.3207899,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "statue",
+    "name": "Monumento a Pietro Paleocapa"
+  }
+},
+{
+  "type": "node",
+  "id": 5476795332,
+  "lat": 45.4326706,
+  "lon": 12.3156586,
+  "tags": {
+    "historic": "memorial",
+    "name": "1876 Nicolotti",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5498137523,
+  "lat": 45.4288382,
+  "lon": 12.3291516,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "plaque",
+    "name": "Joseph Brodsky",
+    "name:en": "Joseph Brodsky",
+    "name:ru": "Иосифа Бродского"
+  }
+},
+{
+  "type": "node",
+  "id": 5498137524,
+  "lat": 45.4286325,
+  "lon": 12.3304880,
+  "tags": {
+    "amenity": "school",
+    "name": "Accademia di belle arti di Venezia",
+    "name:ru": "Венецианская академия изящных искусств",
+    "wikidata": "Q338505",
+    "wikimedia_commons": "Category:Accademia di Belle Arti (Venice)",
+    "wikipedia": "en:Accademia di Belle Arti di Venezia"
+  }
+},
+{
+  "type": "node",
+  "id": 5601798246,
+  "lat": 45.4384690,
+  "lon": 12.3383985,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "stolperstein",
+    "name": "Vivante",
+    "network": "Stolpersteine"
+  }
+},
+{
+  "type": "node",
+  "id": 5959789678,
+  "lat": 45.4279402,
+  "lon": 12.3191402,
+  "tags": {
+    "historic": "memorial"
+  }
+},
+{
+  "type": "node",
+  "id": 6656188403,
+  "lat": 45.4361898,
+  "lon": 12.3392155,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "stele",
+    "wikimedia_commons": "File:Stèle Campo della Guerra à Venise (janvier 2023).JPG"
+  }
+},
+{
+  "type": "node",
+  "id": 8042343515,
+  "lat": 45.4300194,
+  "lon": 12.3300691,
+  "tags": {
+    "addr:housenumber": "624",
+    "addr:street": "Ramo del Brusà",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "Casa Accademia",
+    "phone": "+39 041 522 2755",
+    "smoking": "outside",
+    "tourism": "guest_house",
+    "website": "https://casaccademia.it/",
+    "wheelchair": "yes",
+    "wikidata": "Q111124045"
+  }
+},
+{
+  "type": "node",
+  "id": 8060233033,
+  "lat": 45.4307156,
+  "lon": 12.3202155,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "statue",
+    "name": "Monumento ad Antonio Vivaldi"
+  }
+},
+{
+  "type": "node",
+  "id": 9589344634,
+  "lat": 45.4344921,
+  "lon": 12.3389502,
+  "tags": {
+    "country": "EU",
+    "flag:name": "UE",
+    "flag:type": "cultural",
+    "flag:wikidata": "Q122482",
+    "man_made": "flagpole",
+    "subject": "Europe",
+    "subject:wikidata": "Q46"
+  }
+},
+{
+  "type": "node",
+  "id": 9589344635,
+  "lat": 45.4343753,
+  "lon": 12.3390327,
+  "tags": {
+    "country": "IT",
+    "flag:name": "Italy",
+    "flag:type": "national",
+    "flag:wikidata": "Q42876",
+    "man_made": "flagpole",
+    "subject": "Italy",
+    "subject:wikidata": "Q38"
+  }
+},
+{
+  "type": "node",
+  "id": 10009236876,
+  "lat": 45.4346560,
+  "lon": 12.3259432,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "stolperstein",
+    "name": "Olga Blumenthal"
+  }
+},
+{
+  "type": "node",
+  "id": 10009266518,
+  "lat": 45.4342690,
+  "lon": 12.3265756,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "start_date": "1946"
+  }
+},
+{
+  "type": "node",
+  "id": 10568300347,
+  "lat": 45.4350448,
+  "lon": 12.3397650,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "plaque",
+    "name": "Cardinale Angelo Giuseppe Roncalli"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943558,
+  "lat": 45.4348479,
+  "lon": 12.3397874,
+  "tags": {
+    "historic": "memorial",
+    "material": "metal",
+    "memorial": "statue",
+    "name": "Giorgio Manin"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943559,
+  "lat": 45.4336850,
+  "lon": 12.3370364,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Giuseppe Sirtori"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943561,
+  "lat": 45.4335271,
+  "lon": 12.3371194,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Francesco Avesani"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943563,
+  "lat": 45.4335522,
+  "lon": 12.3369890,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Lajos Winkler"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943564,
+  "lat": 45.4336491,
+  "lon": 12.3369386,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Attilio Emilio Bandiera Domenico Moro"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943565,
+  "lat": 45.4336173,
+  "lon": 12.3369551,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Zambelli Giovanni Scarsellini Angelo Canal Bernardo"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943566,
+  "lat": 45.4349304,
+  "lon": 12.3398303,
+  "tags": {
+    "historic": "memorial",
+    "inscription": "in questa sede patriarcale il card. Albino Luciani visse al governo del suo gregge in bontà e operosa umiltà dal 1970 al 1978 quando eletto Papa Giovanni Paolo I per trentatré giorni come padre e maestro universale aprì la via ad una nuova speranza",
+    "material": "stone",
+    "memorial": "plaque",
+    "name": "Albino Luciani"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943567,
+  "lat": 45.4337859,
+  "lon": 12.3369420,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "plaque"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943569,
+  "lat": 45.4337183,
+  "lon": 12.3370189,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Jacopo Castelli"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943570,
+  "lat": 45.4336825,
+  "lon": 12.3369213,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Isacco Pesaro Maurogonato"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943571,
+  "lat": 45.4334972,
+  "lon": 12.3371346,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Giovanni Battista Varè"
+  }
+},
+{
+  "type": "node",
+  "id": 10570943572,
+  "lat": 45.4335316,
+  "lon": 12.3369997,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Alessandro Poerio"
+  }
+},
+{
+  "type": "node",
+  "id": 10570998680,
+  "lat": 45.4332178,
+  "lon": 12.3394111,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "plaque",
+    "name": "Vittorio Emanuele Ii"
+  }
+},
+{
+  "type": "node",
+  "id": 10587166485,
+  "lat": 45.4343676,
+  "lon": 12.3379721,
+  "tags": {
+    "historic": "memorial",
+    "inscription": "questa casa ricorda l'aiuto magnanimo che Napoli diede alla resistenza eroica di Venezia qui abitò Guglielmo Pepe qui suo ospite morì di gloriose ferite Alessandro Poerio",
+    "material": "stone",
+    "memorial": "plaque",
+    "plaque": "here_lived;here_died",
+    "subject": "Guglielmo Pepe;Alessandro Poerio"
+  }
+},
+{
+  "type": "node",
+  "id": 10587170555,
+  "lat": 45.4341873,
+  "lon": 12.3348412,
+  "tags": {
+    "historic": "memorial",
+    "material": "stone",
+    "memorial": "plaque",
+    "name": "Wolfgang Amadeus Mozart"
+  }
+},
+{
+  "type": "node",
+  "id": 10589198696,
+  "lat": 45.4368893,
+  "lon": 12.3389086,
+  "tags": {
+    "addr:city": "Venezia",
+    "addr:housenumber": "5485",
+    "addr:postcode": "30122",
+    "addr:street": "Calle de la Malvasia",
+    "entrance": "yes",
+    "historic": "memorial",
+    "inscription": "in questa casa visse Antonio Bembo detto Canaletto",
+    "material": "stone",
+    "memorial": "plaque",
+    "name": "Antonio Canaletto",
+    "start_date": "1968"
+  }
+},
+{
+  "type": "node",
+  "id": 10592472231,
+  "lat": 45.4307242,
+  "lon": 12.3303107,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "war_memorial",
+    "name": "Caduti della Prima Guerra Mondiale"
+  }
+},
+{
+  "type": "node",
+  "id": 10592638539,
+  "lat": 45.4310358,
+  "lon": 12.3358468,
+  "tags": {
+    "historic": "memorial",
+    "material": "stone",
+    "memorial": "plaque",
+    "name": "Finanzieri caduti durante le guerre"
+  }
+},
+{
+  "type": "node",
+  "id": 10592646771,
+  "lat": 45.4305450,
+  "lon": 12.3322696,
+  "tags": {
+    "historic": "memorial",
+    "material": "stone",
+    "memorial": "stele",
+    "name": "Henri de Regnier",
+    "start_date": "1948"
+  }
+},
+{
+  "type": "node",
+  "id": 11212644861,
+  "lat": 45.4351552,
+  "lon": 12.3368734,
+  "tags": {
+    "historic": "memorial",
+    "inscription": "Ponte demolito rivo aggerato aquaeductu suffecto via nova aperta est a MDCCCXXXVII aere civico",
+    "material": "stone",
+    "memorial": "stele",
+    "name": "Interramento Canale",
+    "start_date": "1837"
+  }
+},
+{
+  "type": "node",
+  "id": 11299958279,
+  "lat": 45.4332092,
+  "lon": 12.3360277,
+  "tags": {
+    "historic": "memorial",
+    "material": "stone",
+    "memorial": "stele",
+    "name": "Caduti della prima guerra mondiale"
+  }
+},
+{
+  "type": "node",
+  "id": 11299968574,
+  "lat": 45.4327918,
+  "lon": 12.3337794,
+  "tags": {
+    "historic": "memorial",
+    "material": "stone",
+    "memorial": "stele"
+  }
+},
+{
+  "type": "node",
+  "id": 11304498213,
+  "lat": 45.4377330,
+  "lon": 12.3210835,
+  "tags": {
+    "historic": "memorial",
+    "material": "stone",
+    "memorial": "plaque",
+    "name": "Caduti della prima guerra mondiale"
+  }
+},
+{
+  "type": "node",
+  "id": 12516830637,
+  "lat": 45.4338024,
+  "lon": 12.3308420,
+  "tags": {
+    "historic": "memorial",
+    "indoor": "yes",
+    "material": "marble",
+    "memorial": "statue",
+    "name": "Mausoleo di Domenico Contarini",
+    "statue": "equestrian",
+    "subject": "Domenico Contarini",
+    "subject:wikidata": "Q131826281",
+    "wikidata": "Q21141737",
+    "wikimedia_commons": "Category:Domenico Contarini's mausoleum (Venice)"
+  }
+},
+{
+  "type": "node",
+  "id": 12613444059,
+  "lat": 45.4387017,
+  "lon": 12.3295589,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "plaque",
+    "name": "Francesco Pasinetti"
+  }
+},
+{
+  "type": "node",
+  "id": 12778940301,
+  "lat": 45.4319711,
+  "lon": 12.3265363,
+  "tags": {
+    "addr:housenumber": "1058",
+    "addr:street": "Fondamenta Bollani",
+    "name": "Pensione Accademia",
+    "tourism": "hotel",
+    "website": "https://www.pensioneaccademia.it/"
+  }
+},
+{
+  "type": "node",
+  "id": 13931877480,
+  "lat": 45.4350916,
+  "lon": 12.3259479,
+  "tags": {
+    "fixme": "Couldn't read the smallest writing from my photo.",
+    "historic": "memorial",
+    "inscription": "In questa casa nacque e opero' il pittore\nCARLO DALLA ZORZA\nlirico interprete della laguna\ne del paesaggio veneto\n1903-1977",
+    "material": "stone",
+    "memorial": "plaque"
+  }
+},
+{
+  "type": "node",
+  "id": 13999521826,
+  "lat": 45.4366109,
+  "lon": 12.3342188,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "plaque"
+  }
+},
+{
+  "type": "node",
+  "id": 13999601928,
+  "lat": 45.4365957,
+  "lon": 12.3348001,
+  "tags": {
+    "historic": "memorial",
+    "inscription": "Rafael Leghziel",
+    "memorial": "stolperstein"
+  }
+},
+{
+  "type": "node",
+  "id": 13999601929,
+  "lat": 45.4395727,
+  "lon": 12.3384539,
+  "tags": {
+    "historic": "memorial",
+    "memorial": "stolperstein",
+    "subject": "Elena Fano Corinaldi;Rosita Corinaldi;Mario Dina;Guido Dina;Giorgia Dina;Anna Dina;Leone Dina"
+  }
+},
+{
+  "type": "node",
+  "id": 13999601930,
+  "lat": 45.4397772,
+  "lon": 12.3387857,
+  "tags": {
+    "historic": "memorial",
+    "inscription": "Eugenio Saraval",
+    "memorial": "stolperstein"
+  }
+},
+{
+  "type": "node",
+  "id": 14000017862,
+  "lat": 45.4388593,
+  "lon": 12.3291319,
+  "tags": {
+    "historic": "memorial",
+    "inscription": "Giacomo Casanova fetched a surgeon to give aid to Noble Matteo Bragadin ...",
+    "memorial": "plaque"
+  }
+},
+{
+  "type": "way",
+  "id": 138802347,
+  "center": {
+    "lat": 45.4353200,
+    "lon": 12.3341882
+  },
+  "tags": {
+    "barrier": "fence",
+    "historic": "memorial",
+    "memorial": "statue",
+    "name": "Daniele Manin",
+    "start_date": "1875"
+  }
+},
+{
+  "type": "way",
+  "id": 138802520,
+  "center": {
+    "lat": 45.4377586,
+    "lon": 12.3368549
+  },
+  "tags": {
+    "artwork_type": "sculpture",
+    "historic": "memorial",
+    "memorial": "statue",
+    "name": "Carlo Goldoni",
+    "tourism": "artwork",
+    "wikidata": "Q109652847",
+    "wikimedia_commons": "Category:Monument to Carlo Goldoni (Venice)",
+    "wikipedia": "it:Monumento a Carlo Goldoni"
+  }
+},
+{
+  "type": "way",
+  "id": 138842420,
+  "center": {
+    "lat": 45.4316230,
+    "lon": 12.3286942
+  },
+  "tags": {
+    "bench": "yes",
+    "bin": "no",
+    "building": "roof",
+    "check_date:bench": "2023-03-20",
+    "ferry": "yes",
+    "floating": "yes",
+    "lit": "yes",
+    "man_made": "pier",
+    "mooring": "no",
+    "name": "Accademia",
+    "public_transport": "platform",
+    "shelter": "yes",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 138842534,
+  "center": {
+    "lat": 45.4317218,
+    "lon": 12.3285149
+  },
+  "tags": {
+    "bench": "yes",
+    "bin": "no",
+    "building": "roof",
+    "ferry": "yes",
+    "lit": "yes",
+    "man_made": "pier",
+    "name": "Accademia A",
+    "public_transport": "platform",
+    "shelter": "yes",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 171899882,
+  "center": {
+    "lat": 45.4314519,
+    "lon": 12.3287632
+  },
+  "tags": {
+    "bridge": "yes",
+    "foot": "yes",
+    "handrail": "yes",
+    "highway": "steps",
+    "incline": "up",
+    "layer": "1",
+    "lit": "yes",
+    "name": "Ponte dell'Accademia",
+    "name:cs": "most Akademie",
+    "name:en": "Bridge of the Academy",
+    "ramp": "no",
+    "start_date": "1933-01-15",
+    "step_count": "52",
+    "surface": "wood",
+    "tactile_paving": "no",
+    "wikipedia": "it:Ponte dell'Accademia"
+  }
+},
+{
+  "type": "way",
+  "id": 174693570,
+  "center": {
+    "lat": 45.4286756,
+    "lon": 12.3296713
+  },
+  "tags": {
+    "bridge": "yes",
+    "handrail": "yes",
+    "highway": "steps",
+    "incline": "up",
+    "layer": "1",
+    "lit": "no",
+    "name": "Ponte ai Incurabili",
+    "ramp": "separate",
+    "ramp:wheelchair": "separate",
+    "step_count": "10",
+    "surface": "paving_stones",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 174756520,
+  "center": {
+    "lat": 45.4287718,
+    "lon": 12.3292744
+  },
+  "tags": {
+    "bicycle": "no",
+    "highway": "pedestrian",
+    "lit": "yes",
+    "name": "Fondamenta Zattere ai Incurabili",
+    "oneway": "no",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "way",
+  "id": 352859832,
+  "center": {
+    "lat": 45.4314418,
+    "lon": 12.3286386
+  },
+  "tags": {
+    "handrail": "yes",
+    "highway": "steps",
+    "incline": "up",
+    "lit": "no",
+    "name": "Ponte dell'Accademia",
+    "name:cs": "most Akademie",
+    "ramp": "no",
+    "start_date": "1933-01-15",
+    "step": "yes",
+    "step_count": "17",
+    "surface": "wood",
+    "tactile_paving": "no",
+    "wikipedia": "it:Ponte dell'Accademia"
+  }
+},
+{
+  "type": "way",
+  "id": 374073142,
+  "center": {
+    "lat": 45.4314050,
+    "lon": 12.3287231
+  },
+  "tags": {
+    "bicycle": "no",
+    "bridge": "yes",
+    "handrail": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "lit": "no",
+    "name": "Ponte dell'Accademia",
+    "name:cs": "most Akademie",
+    "name:uk": "Міст Академії",
+    "start_date": "1933-01-15",
+    "surface": "wood",
+    "wikipedia": "it:Ponte dell'Accademia"
+  }
+},
+{
+  "type": "way",
+  "id": 421515919,
+  "center": {
+    "lat": 45.4314472,
+    "lon": 12.3305836
+  },
+  "tags": {
+    "foot": "yes",
+    "motor_vehicle": "no",
+    "name": "Accademia - Giglio",
+    "note": "Two lines can only share a connection between exact two terminals. If not routing does not work. Do not join this way with others.",
+    "route": "ferry"
+  }
+},
+{
+  "type": "way",
+  "id": 421515922,
+  "center": {
+    "lat": 45.4317046,
+    "lon": 12.3332633
+  },
+  "tags": {
+    "foot": "yes",
+    "motor_vehicle": "no",
+    "name": "Accademia - San Marco Giardinetti",
+    "note": "Two lines can only share a connection between exact two terminals. If not routing does not work. Do not join this way with others.",
+    "route": "ferry"
+  }
+},
+{
+  "type": "way",
+  "id": 421515929,
+  "center": {
+    "lat": 45.4325023,
+    "lon": 12.3278399
+  },
+  "tags": {
+    "foot": "yes",
+    "motor_vehicle": "no",
+    "name": "Ca' Rezzonico - Accademia",
+    "note": "Two lines can only share a connection between exact two terminals. If not routing does not work. Do not join this way with others.",
+    "route": "ferry"
+  }
+},
+{
+  "type": "way",
+  "id": 421515976,
+  "center": {
+    "lat": 45.4326116,
+    "lon": 12.3279849
+  },
+  "tags": {
+    "foot": "yes",
+    "motor_vehicle": "no",
+    "name": "San Samuele - Accademia",
+    "note": "Two lines can only share a connection between exact two terminals. If not routing does not work. Do not join this way with others.",
+    "route": "ferry"
+  }
+},
+{
+  "type": "way",
+  "id": 423050190,
+  "center": {
+    "lat": 45.4288884,
+    "lon": 12.3300786
+  },
+  "tags": {
+    "highway": "pedestrian",
+    "name": "Calle Agli Incurabili"
+  }
+},
+{
+  "type": "way",
+  "id": 490421915,
+  "center": {
+    "lat": 45.4292562,
+    "lon": 12.3302255
+  },
+  "tags": {
+    "highway": "pedestrian",
+    "name": "Calle Agli Incurabili",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "way",
+  "id": 490421916,
+  "center": {
+    "lat": 45.4291915,
+    "lon": 12.3302019
+  },
+  "tags": {
+    "covered": "yes",
+    "highway": "pedestrian",
+    "name": "Calle Agli Incurabili",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "way",
+  "id": 490421919,
+  "center": {
+    "lat": 45.4294869,
+    "lon": 12.3303357
+  },
+  "tags": {
+    "highway": "pedestrian",
+    "name": "Ramo Terzo Agli Incurabili",
+    "source": "knowledge",
+    "source:date": "2017",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "way",
+  "id": 490421920,
+  "center": {
+    "lat": 45.4294045,
+    "lon": 12.3306084
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "pedestrian",
+    "name": "Ramo Terzo Agli Incurabili",
+    "source": "knowledge",
+    "source:date": "2017",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "way",
+  "id": 555724904,
+  "center": {
+    "lat": 45.4369696,
+    "lon": 12.3362427
+  },
+  "tags": {
+    "building": "yes",
+    "description": "Colonna a ricordo dei caduti durante i moti rivoluzionari del 1848-1849",
+    "historic": "memorial",
+    "memorial": "stele",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 556239027,
+  "center": {
+    "lat": 45.4316598,
+    "lon": 12.3289053
+  },
+  "tags": {
+    "bridge:structure": "arch",
+    "layer": "1",
+    "man_made": "bridge",
+    "name": "Ponte dell'Accademia",
+    "name:cs": "most Akademie",
+    "name:en": "Academia Bridge",
+    "name:es": "Puente de la Academia",
+    "name:it": "Ponte dell'Accademia",
+    "name:ko": "아카데미아 다리",
+    "name:zh": "学院桥",
+    "wikidata": "Q52509",
+    "wikimedia_commons": "Category:Ponte dell'Accademia (Venice)",
+    "wikipedia": "en:Ponte dell'Accademia",
+    "year": "1933"
+  }
+},
+{
+  "type": "way",
+  "id": 556277348,
+  "center": {
+    "lat": 45.4286606,
+    "lon": 12.3297272
+  },
+  "tags": {
+    "bridge:structure": "humpback",
+    "layer": "1",
+    "man_made": "bridge",
+    "name": "Ponte ai Incurabili",
+    "wikidata": "Q56887438",
+    "wikimedia_commons": "Category:Ponte agli Incurabili (Venice)"
+  }
+},
+{
+  "type": "way",
+  "id": 575901913,
+  "center": {
+    "lat": 45.4254942,
+    "lon": 12.3244587
+  },
+  "tags": {
+    "highway": "pedestrian",
+    "name": "Calle Longa dell'Accademia dei Nobili",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "way",
+  "id": 586685853,
+  "center": {
+    "lat": 45.4332662,
+    "lon": 12.3304232
+  },
+  "tags": {
+    "historic": "memorial",
+    "memorial": "statue",
+    "name": "Monumento a Niccolò Tommaseo",
+    "wikidata": "Q105994820",
+    "wikimedia_commons": "Category:Monument to Niccolò Tommaseo (Venice)",
+    "wikipedia": "it:Monumento a Niccolò Tommaseo"
+  }
+},
+{
+  "type": "way",
+  "id": 858928204,
+  "center": {
+    "lat": 45.4293577,
+    "lon": 12.3304199
+  },
+  "tags": {
+    "highway": "pedestrian",
+    "name": "Ramo Terzo Agli Incurabili",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "way",
+  "id": 946641887,
+  "center": {
+    "lat": 45.4319333,
+    "lon": 12.3291453
+  },
+  "tags": {
+    "bridge": "yes",
+    "check_date:ramp": "2026-04-07",
+    "foot": "yes",
+    "handrail": "yes",
+    "highway": "steps",
+    "incline": "down",
+    "layer": "1",
+    "lit": "yes",
+    "name": "Ponte dell'Accademia",
+    "name:cs": "most Akademie",
+    "name:en": "Bridge of the Academy",
+    "ramp": "no",
+    "start_date": "1933-01-15",
+    "step_count": "52",
+    "surface": "wood",
+    "tactile_paving": "no",
+    "wikipedia": "it:Ponte dell'Accademia"
+  }
+},
+{
+  "type": "way",
+  "id": 946641888,
+  "center": {
+    "lat": 45.4316777,
+    "lon": 12.3289420
+  },
+  "tags": {
+    "bridge": "yes",
+    "foot": "yes",
+    "highway": "footway",
+    "layer": "2",
+    "lit": "yes",
+    "name": "Ponte dell'Accademia",
+    "name:cs": "most Akademie",
+    "name:en": "Bridge of the Academy",
+    "ramp": "no",
+    "start_date": "1933-01-15",
+    "surface": "wood",
+    "wikipedia": "it:Ponte dell'Accademia"
+  }
+},
+{
+  "type": "way",
+  "id": 947035892,
+  "center": {
+    "lat": 45.4286595,
+    "lon": 12.3297346
+  },
+  "tags": {
+    "bridge": "yes",
+    "handrail": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "lit": "no",
+    "name": "Ponte ai Incurabili",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "way",
+  "id": 947035893,
+  "center": {
+    "lat": 45.4286451,
+    "lon": 12.3297909
+  },
+  "tags": {
+    "bridge": "yes",
+    "handrail": "yes",
+    "highway": "steps",
+    "incline": "down",
+    "layer": "1",
+    "lit": "no",
+    "name": "Ponte ai Incurabili",
+    "ramp": "separate",
+    "ramp:wheelchair": "separate",
+    "step_count": "10",
+    "surface": "paving_stones",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1134918226,
+  "center": {
+    "lat": 45.4313536,
+    "lon": 12.3287925
+  },
+  "tags": {
+    "handrail": "yes",
+    "highway": "steps",
+    "incline": "down",
+    "lit": "no",
+    "name": "Ponte dell'Accademia",
+    "name:cs": "most Akademie",
+    "name:uk": "Міст Академії",
+    "ramp": "no",
+    "start_date": "1933-01-15",
+    "step": "yes",
+    "step_count": "16",
+    "surface": "wood",
+    "tactile_paving": "no",
+    "wikipedia": "it:Ponte dell'Accademia"
+  }
+},
+{
+  "type": "relation",
+  "id": 7934496,
+  "center": {
+    "lat": 45.4326065,
+    "lon": 12.3373517
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Fonteghetto della Farina Accademia dei Pittori",
+    "type": "multipolygon"
+  }
+}
+
+  ]
+}

@@ -29,3 +29,7 @@ analysis/.venv-accent/
 !docs/index.html
 !docs/prosvet.html
 !analysis/report4.head.html
+
+# ── карта Венеции: большой кэш Overpass и отдельный svg пересоздаются build_map.py ──
+analysis/venice_map/cache/base.json
+analysis/venice_map/venice-map.svg

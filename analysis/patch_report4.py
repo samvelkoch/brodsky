@@ -6,9 +6,12 @@
 report3.template.html и его сборка не затрагиваются.
 """
 import re
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE / "venice_map"))
+from block import venice_map_block   # карта Венеции: venice_map/map-fragment.svg + points.json
 t = (HERE / "report3.template.html").read_text(encoding="utf-8")
 
 # ---------------------------------------------------------------- куски исходника
@@ -33,6 +36,11 @@ sections["epitety"] = sections["epitety"].replace("</section>", orphan + "\n</se
 sections["glavnoe"] = sections["glavnoe"].replace(' style="padding-top:28px"', "")
 assert "синее — реже" in sections["temy"]
 sections["temy"] = sections["temy"].replace("синее — реже", "зелёное — реже")
+
+# карта Венеции: сразу после «главного» и перед панелью силуэтов
+assert sections["venecia"].count('<p class="finding" id="f-ven"></p>') == 1
+sections["venecia"] = sections["venecia"].replace(
+    '<p class="finding" id="f-ven"></p>', '<p class="finding" id="f-ven"></p>\n  ' + venice_map_block(), 1)
 
 # новая карта словаря: период, «Играть», поиск, группы
 sections["karta"] = '''<section id="karta">
