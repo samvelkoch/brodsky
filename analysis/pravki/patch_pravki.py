@@ -7,7 +7,7 @@ python3 patch_pravki.py path/to/naprosvet/brodsky/index.html
 import re
 import sys
 
-SUBTITLE = "Глубокий анализ корпуса текстов.<br><span>Стиль и язык в цифрах.</span>"
+SUBTITLE = "Глубокий анализ корпуса текстов"
 PART2 = "Поэтика"
 
 path = sys.argv[1]
@@ -71,7 +71,7 @@ for sid, label, rx in REF:
 CSS = """
 /* правки 2026-10: подзаголовок шапки, справки */
 .hero-sub{font-family:var(--f-body); font-size:clamp(24px,3.2vw,34px); line-height:1.2; font-weight:600; color:var(--htext); margin:14px 0 18px}
-.hero-sub span{font-weight:400; color:var(--htext-2)}
+@media (max-width:640px){.hero-sub{font-size:19px; margin:10px 0 14px}}
 details.ref{margin:14px 0 18px; border:1px dashed var(--rule)}
 details.ref>summary{list-style:none; cursor:pointer; padding:11px 14px; font:500 13.5px/1.35 var(--f-mono); letter-spacing:.03em; color:var(--ink-2); display:flex; gap:10px; align-items:center}
 details.ref>summary::-webkit-details-marker{display:none}
